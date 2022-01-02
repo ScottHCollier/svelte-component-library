@@ -3,12 +3,17 @@
 	import NavLinks from './NavLinks.svelte';
 	import NavSlider from './NavSlider.svelte';
 
+	let uid = 1;
+
 	let sliderMessages = [
-		`Jaguar shark! So tell me - does it really exist?`,
-		`God creates dinosaurs. God destroys dinosaurs. God creates Man. Man destroys God. Man creates Dinosaurs.`,
-		`Just my luck, no ice.`,
-		`Forget the fat lady! You're obsessed with the fat lady!`,
-		`They're using our own satellites against us. And the clock is ticking.`
+		{ id: uid++, message: `Jaguar shark! So tell me - does it really exist?` },
+		{
+			id: uid++,
+			message: `God creates dinosaurs. God destroys dinosaurs. God creates Man. Man destroys God. Man creates Dinosaurs.`
+		},
+		{ id: uid++, message: `Just my luck, no ice.` },
+		{ id: uid++, message: `Forget the fat lady! You're obsessed with the fat lady!` },
+		{ id: uid++, message: `They're using our own satellites against us. And the clock is ticking.` }
 	];
 </script>
 
@@ -20,7 +25,7 @@
 	<div class="right-column">&nbsp;</div>
 </nav>
 
-<NavSlider interval={4400} {sliderMessages} sliderInitial={sliderMessages[0]} />
+<NavSlider interval={6000} {sliderMessages} />
 
 <style lang="scss">
 	.nav {

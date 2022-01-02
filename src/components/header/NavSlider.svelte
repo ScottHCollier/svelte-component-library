@@ -1,30 +1,48 @@
 <script>
+	import { flip } from 'svelte/animate';
+
 	export let interval;
 	export let sliderMessages;
-	export let sliderInitial;
-
-	let sliderIndex = 1;
-
-	let sliderText = sliderInitial;
 
 	setInterval(() => {
-		if (sliderIndex === sliderMessages.length) {
-			sliderIndex = 0;
-		}
-		sliderText = sliderMessages[sliderIndex];
-		sliderIndex++;
+		sliderMessages = [...sliderMessages.slice(1, sliderMessages.length), sliderMessages[0]];
 	}, interval);
 </script>
 
-<div class="nav-slider">
-	{sliderText}
+<div class="slider-container">
+	<div class="nav-slider">
+		{#each sliderMessages as sliderMessage (sliderMessage.id)}
+			<div
+				class="message {sliderMessages.indexOf(sliderMessage) === 4 ? 'transitioning' : ''}"
+				animate:flip={{ duration: 1600 }}
+			>
+				{sliderMessage.message}
+			</div>
+		{/each}
+	</div>
 </div>
 
 <style lang="scss">
-	.nav-slider {
-		height: 30px;
+	.slider-container {
 		@include flex-box;
-		padding: 0 $nav-padding-width;
-		font-size: $font-copy-small;
+		overflow-x: hidden;
+
+		.nav-slider {
+			height: 30px;
+
+			@include flex-box;
+			padding: 0 $nav-padding-width;
+			font-size: $font-copy-small;
+
+			.message {
+				text-align: center;
+
+				width: 100vw;
+
+				&.transitioning {
+					opacity: 0;
+				}
+			}
+		}
 	}
 </style>

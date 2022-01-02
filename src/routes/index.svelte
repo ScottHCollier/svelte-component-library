@@ -2,6 +2,7 @@
 	import TwoColumn from '../components/TwoColumn.svelte';
 	import ImageFader from '../components/ImageFader.svelte';
 	import HeroBanner from '../components/HeroBanner.svelte';
+	import ProductCentred from '../components/ProductCentred.svelte';
 
 	let backgroundImages = [
 		'/src/assets/image-fader/hero-one.jpg',
@@ -12,48 +13,56 @@
 
 <HeroBanner
 	src="/src/assets/image-fader/person-one.png"
-	headline="Hero headline."
+	headline="Lean green."
 	subtitle="Clever little subtitle."
 	buttonText="Get in touch"
-	colour="green"
-	reverse={false}
+	href="/"
+	colour="primary"
+/>
+
+<ProductCentred
+	title="Product showcase"
+	subtitle="*Terms and Conditions would probably be pretty good here"
+	imageSrc="./src/assets/products/iphone-small.png"
+	imageAlt="iphone small"
 />
 
 <HeroBanner
 	src="/src/assets/image-fader/person-two.png"
-	headline="Hero headline."
+	headline="Slices for half-time."
 	subtitle="Clever little subtitle."
 	buttonText="Get in touch"
-	colour="orange"
-	reverse={true}
+	href="/"
+	colour="tertiary"
+	reverse
 />
 
-<ImageFader {backgroundImages} interval={3000} height="500px" />
+<ImageFader {backgroundImages} interval={6000} height="500px" />
 
 <HeroBanner
 	src="/src/assets/image-fader/person-three.png"
-	headline="Hero headline."
+	headline="Pretty in pink."
 	subtitle="Clever little subtitle."
 	buttonText="Get in touch"
-	colour="pink"
-	reverse={false}
+	href="/"
+	colour="fourth"
 />
 
 <TwoColumn
-	reverse={true}
-	textTitle="Title"
-	textCopy="Yeah, but John, if The Pirates of the Caribbean breaks down, the pirates don’t eat the tourists. Yes, Yes, without the oops! You really think you can fly that thing? Jaguar shark! So tell me - does it really exist? Must go faster... go, go, go, go, go!"
+	reverse
+	textTitle="Nonsense from Jeff Goldblum"
+	textCopy="Yeah, but John, if The Pirates of the Caribbean breaks down, the pirates don’t eat the tourists. Yes, Yes, without the oops! You really think you can fly that thing?"
 	imageSrc="./src/assets/products/laptop-small.png"
 	imageAlt="laptop small"
 />
 
 <HeroBanner
 	src="/src/assets/responsive-design/responsive-alternate-large.png"
-	headline="Hero headline."
+	headline="Brothers."
 	subtitle="Clever little subtitle."
 	buttonText="Get in touch"
-	colour="blue"
-	reverse={false}
+	href="/"
+	colour="secondary"
 />
 
 <style lang="scss">

@@ -3,8 +3,9 @@
 	export let headline;
 	export let subtitle;
 	export let buttonText;
+	export let href;
 	export let colour;
-	export let reverse;
+	export let reverse = false;
 </script>
 
 <div class="hero-banner {colour} {reverse ? 'reverse' : ''}">
@@ -12,7 +13,7 @@
 	<div class="hero-banner-text {colour}">
 		<h2>{headline}</h2>
 		<span>{subtitle}</span>
-		<a href="/" class="button {colour}">{buttonText}</a>
+		<a {href} class="button {colour}">{buttonText}</a>
 	</div>
 </div>
 
@@ -27,20 +28,20 @@
 			flex-direction: row-reverse;
 		}
 
-		&.green {
-			background-color: $light-green;
+		&.primary {
+			background-color: $primary-light;
 		}
 
-		&.blue {
-			background-color: $light-blue;
+		&.secondary {
+			background-color: $secondary-light;
 		}
 
-		&.orange {
-			background-color: $light-orange;
+		&.tertiary {
+			background-color: $tertiary-light;
 		}
 
-		&.pink {
-			background-color: $light-pink;
+		&.fourth {
+			background-color: $fourth-light;
 		}
 
 		img {
@@ -53,20 +54,20 @@
 			align-items: center;
 			flex-direction: column;
 
-			&.green {
-				color: $dark-green;
+			&.primary {
+				color: $primary-dark;
 			}
 
-			&.blue {
-				color: $dark-blue;
+			&.secondary {
+				color: $secondary-dark;
 			}
 
-			&.orange {
-				color: $dark-orange;
+			&.tertiary {
+				color: $tertiary-dark;
 			}
 
-			&.pink {
-				color: $dark-pink;
+			&.fourth {
+				color: $fourth-dark;
 			}
 
 			h2 {
@@ -91,38 +92,38 @@
 				font-weight: $font-medium;
 				transition: all 300ms linear;
 
-				&.green {
-					color: $dark-green;
-					border: 2px solid $dark-green;
+				&.primary {
+					color: $primary-dark;
+					border: 2px solid $primary-dark;
 
 					&:hover {
-						background-color: $dark-green;
+						background-color: $primary-dark;
 					}
 				}
 
-				&.blue {
-					color: $dark-blue;
-					border: 2px solid $dark-blue;
+				&.secondary {
+					color: $secondary-dark;
+					border: 2px solid $secondary-dark;
 
 					&:hover {
-						background-color: $dark-blue;
+						background-color: $secondary-dark;
 					}
 				}
 
-				&.orange {
-					color: $dark-orange;
-					border: 2px solid $dark-orange;
+				&.tertiary {
+					color: $tertiary-dark;
+					border: 2px solid $tertiary-dark;
 
 					&:hover {
-						background-color: $dark-orange;
+						background-color: $tertiary-dark;
 					}
 				}
-				&.pink {
-					color: $dark-pink;
-					border: 2px solid $dark-pink;
+				&.fourth {
+					color: $fourth-dark;
+					border: 2px solid $fourth-dark;
 
 					&:hover {
-						background-color: $dark-pink;
+						background-color: $fourth-dark;
 					}
 				}
 

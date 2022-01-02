@@ -3,19 +3,19 @@
 
 <ul class="nav-links">
 	<li class="nav-link">
-		<a href="/">First</a>
+		<a href="/">Latest News</a>
 	</li>
 	<li class="nav-link">
-		<a href="/">Second</a>
+		<a href="/">Shop</a>
 	</li>
 	<li class="nav-link">
-		<a href="/">Third</a>
+		<a href="/">Mission Statement</a>
 	</li>
 	<li class="nav-link">
-		<a href="/">Fourth</a>
+		<a href="/">Services</a>
 	</li>
 	<li class="nav-link">
-		<a href="/">Fifth</a>
+		<a href="/">Blog</a>
 	</li>
 	<li class="nav-link">
 		<a href="/">Contact</a>
