@@ -15,7 +15,7 @@
 <NavAdmin />
 
 <nav class="nav">
-	<div class="left-column"><img src="../src/assets/logo/logo.svg" alt="dinkedIn logo" /></div>
+	<div class="left-column">SC</div>
 	<div class="center-column"><NavLinks /></div>
 	<div class="right-column">&nbsp;</div>
 </nav>
@@ -28,11 +28,11 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		color: white;
 		position: sticky;
 		top: 0px;
 		z-index: 1;
-		padding: 20px $nav-padding-width;
+		padding: 5px $nav-padding-width;
+		color: $black;
 
 		.left-column,
 		.right-column {
@@ -43,6 +43,8 @@
 
 		.left-column {
 			justify-content: flex-start;
+			font-size: $font-headline-medium;
+			font-weight: $font-bold;
 		}
 
 		.right-column {

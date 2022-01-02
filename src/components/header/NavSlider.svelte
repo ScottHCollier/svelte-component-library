@@ -23,10 +23,8 @@
 <style lang="scss">
 	.nav-slider {
 		height: 30px;
-		background-color: $secondary;
 		@include flex-box;
 		padding: 0 $nav-padding-width;
 		font-size: $font-copy-small;
-		color: $secondary-text-colour;
 	}
 </style>
