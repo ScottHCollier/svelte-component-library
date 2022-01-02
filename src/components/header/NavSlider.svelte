@@ -36,7 +36,6 @@
 
 			.message {
 				text-align: center;
-
 				width: 100vw;
 
 				&.transitioning {
