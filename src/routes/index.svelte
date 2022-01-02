@@ -1,13 +1,16 @@
 <script>
-	import ImageSlider from '../components/ImageSlider.svelte';
+	import TwoColumn from '../components/TwoColumn.svelte';
+	import ImageFader from '../components/ImageFader.svelte';
 	let backgroundImages = [
-		'/src/assets/hero-one.jpg',
-		'/src/assets/hero-two.jpg',
-		'/src/assets/hero-three.jpg'
+		'/src/assets/image-fader/hero-one.jpg',
+		'/src/assets/image-fader/hero-two.jpg',
+		'/src/assets/image-fader/hero-three.jpg'
 	];
 </script>
 
-<ImageSlider {backgroundImages} interval={8000} height="500px" />
+<ImageFader {backgroundImages} interval={8000} height="500px" />
+
+<TwoColumn />
 
 <style lang="scss">
 </style>

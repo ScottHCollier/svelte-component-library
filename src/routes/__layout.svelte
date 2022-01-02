@@ -28,4 +28,8 @@
 	:global(li) {
 		list-style: none;
 	}
+
+	// :global(body) {
+	// 	overflow-x: hidden;
+	// }
 </style>

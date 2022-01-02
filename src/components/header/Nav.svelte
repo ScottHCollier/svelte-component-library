@@ -15,7 +15,7 @@
 <NavAdmin />
 
 <nav class="nav">
-	<div class="left-column"><img src="../src/assets/logo.svg" alt="dinkedIn logo" /></div>
+	<div class="left-column"><img src="../src/assets/logo/logo.svg" alt="dinkedIn logo" /></div>
 	<div class="center-column"><NavLinks /></div>
 	<div class="right-column">&nbsp;</div>
 </nav>
