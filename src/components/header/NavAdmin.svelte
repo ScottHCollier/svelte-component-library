@@ -11,6 +11,9 @@
 		justify-content: flex-end;
 		padding: 0 $nav-padding-width;
 		font-size: $font-copy-small;
-		color: $secondary-text-colour;
+
+		a {
+			color: $secondary-text-colour;
+		}
 	}
 </style>

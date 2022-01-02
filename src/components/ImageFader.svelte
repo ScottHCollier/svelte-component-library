@@ -11,14 +11,14 @@
 	}, interval);
 </script>
 
-<div class="image-slider" style="height: {height}">
+<div class="image-fader" style="height: {height}">
 	{#each [backgroundImages[backgroundIndex]] as src (backgroundIndex)}
 		<div class="image" transition:fade style="background-image: url({src});" alt="test" />
 	{/each}
 </div>
 
 <style lang="scss">
-	.image-slider {
+	.image-fader {
 		position: relative;
 
 		.image {

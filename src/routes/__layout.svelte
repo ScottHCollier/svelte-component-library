@@ -17,7 +17,7 @@
 	:global(*) {
 		margin: 0;
 		padding: 0;
-		font-family: 'Poppins', sans-serif;
+		font-family: 'Noto Sans Display', sans-serif;
 		text-decoration: none;
 	}
 

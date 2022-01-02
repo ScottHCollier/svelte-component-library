@@ -1,12 +1,13 @@
 <script>
-	import ImageCard from './ImageCard.svelte';
+	import ImageFader from './ImageFader.svelte';
 	import TextBox from './TextBox.svelte';
 
 	export let reverse;
+	export let backgroundImages;
 </script>
 
 <div class="two-column" style={reverse ? 'flex-direction: row-reverse' : ''}>
-	<ImageCard />
+	<ImageFader {backgroundImages} interval={3000} height="500px" />
 	<TextBox />
 </div>
 
