@@ -10,7 +10,7 @@
 		subtitle="Clever little subtitle."
 		buttonText="Get in touch"
 		href="/"
-		colour="primary"
+		colour="tertiary"
 	/>
 </Container>
 

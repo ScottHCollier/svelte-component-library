@@ -2,9 +2,10 @@
 	import { flip } from 'svelte/animate';
 	import ImageBlocker from './ImageBlocker.svelte';
 
-	export let interval;
+	export let interval = 3000;
 	export let blocker = 0;
 	export let backgroundImages;
+	export let height = '500px';
 
 	setInterval(() => {
 		backgroundImages = [...backgroundImages.slice(1, backgroundImages.length), backgroundImages[0]];
@@ -16,7 +17,7 @@
 	style="transform: translateX({-100 / backgroundImages.length}%); width: {100 *
 		backgroundImages.length}%;"
 >
-	<div class="slider">
+	<div class="slider" style="height: {height};">
 		{#each backgroundImages as image (image.id)}
 			<div
 				class="image {backgroundImages.indexOf(image) === backgroundImages.length - 1
@@ -36,7 +37,6 @@
 		position: relative;
 
 		.slider {
-			height: 500px;
 			@include flex-box;
 			width: 100%;
 

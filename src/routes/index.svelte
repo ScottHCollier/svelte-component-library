@@ -1,12 +1,14 @@
 <script>
 	import Container from '../components/Container.svelte';
-	import TwoColumn from '../components/TwoColumn.svelte';
+	import TwoColumnTest from '../components/TwoColumnTest.svelte';
 	import ImageFader from '../components/ImageFader.svelte';
 	import HeroBanner from '../components/HeroBanner.svelte';
 	import ProductCentred from '../components/ProductCentred.svelte';
 	import ImageSlider from '../components/ImageSlider.svelte';
+	import TwoColumn from '../components/TwoColumn.svelte';
 
 	import { backgroundImages } from '../constants/images';
+	import ColumnCard from '../components/ColumnCard.svelte';
 </script>
 
 <Container fullWidth>
@@ -18,10 +20,6 @@
 		href="/"
 		colour="primary"
 	/>
-</Container>
-
-<Container fullWidth>
-	<ImageSlider {backgroundImages} interval={9454} blocker={0.5} />
 </Container>
 
 <Container>
@@ -46,7 +44,42 @@
 </Container>
 
 <Container>
-	<ImageFader {backgroundImages} interval={6000} height="500px" blocker={0.2} />
+	<TwoColumn>
+		<ColumnCard
+			src="assets/products/macbook.png"
+			headline="On the go functionality."
+			subtitle="MacBook."
+			buttonText="Learn more"
+			href="/"
+			alt="macbook"
+			colour="primary"
+			first
+		/>
+		<ColumnCard
+			src="assets/products/mac.png"
+			headline="Be a sheep, expensively."
+			subtitle="Clever little subtitle."
+			buttonText="Learn more"
+			href="/"
+			alt="mac"
+			colour="fourth"
+			reverse
+		/>
+	</TwoColumn>
+</Container>
+
+<Container fullWidth>
+	<ImageSlider {backgroundImages} interval={5454} blocker={0.5} height="700px" />
+</Container>
+
+<Container>
+	<TwoColumnTest
+		reverse
+		textTitle="Nonsense from Jeff Goldblum"
+		textCopy="Yeah, but John, if The Pirates of the Caribbean breaks down, the pirates don’t eat the tourists. Yes, Yes, without the oops! You really think you can fly that thing?"
+		imageSrc="assets/products/laptop-small.png"
+		imageAlt="laptop small"
+	/>
 </Container>
 
 <Container>
@@ -61,13 +94,7 @@
 </Container>
 
 <Container>
-	<TwoColumn
-		reverse
-		textTitle="Nonsense from Jeff Goldblum"
-		textCopy="Yeah, but John, if The Pirates of the Caribbean breaks down, the pirates don’t eat the tourists. Yes, Yes, without the oops! You really think you can fly that thing?"
-		imageSrc="assets/products/laptop-small.png"
-		imageAlt="laptop small"
-	/>
+	<ImageFader {backgroundImages} interval={4000} height="500px" blocker={0.2} />
 </Container>
 
 <Container>

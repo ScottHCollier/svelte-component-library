@@ -35,7 +35,7 @@
 		position: sticky;
 		top: 0px;
 		z-index: 1;
-		padding: 5px $nav-padding-width;
+		padding: 5px $container-padding-width;
 		color: $black;
 
 		.left-column,

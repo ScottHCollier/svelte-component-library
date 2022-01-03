@@ -8,12 +8,12 @@
 
 <style lang="scss">
 	.container {
-		padding-left: 15%;
-		padding-right: 15%;
+		padding-left: $container-padding-width;
+		padding-right: $container-padding-width;
 
 		&.full-width {
-			margin-left: -15%;
-			margin-right: -15%;
+			margin-left: -$container-padding-width;
+			margin-right: -$container-padding-width;
 		}
 	}
 </style>
