@@ -4,7 +4,6 @@
 	import NavSlider from './NavSlider.svelte';
 
 	let uid = 1;
-
 	let sliderMessages = [
 		{ id: uid++, message: `Jaguar shark! So tell me - does it really exist?` },
 		{
@@ -20,7 +19,7 @@
 <NavAdmin />
 
 <nav class="nav">
-	<div class="left-column">SC</div>
+	<div class="left-column"><a href="/">SC</a></div>
 	<div class="center-column"><NavLinks /></div>
 	<div class="right-column">&nbsp;</div>
 </nav>

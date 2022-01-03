@@ -1,69 +1,85 @@
 <script>
+	import Container from '../components/Container.svelte';
 	import TwoColumn from '../components/TwoColumn.svelte';
 	import ImageFader from '../components/ImageFader.svelte';
 	import HeroBanner from '../components/HeroBanner.svelte';
 	import ProductCentred from '../components/ProductCentred.svelte';
+	import ImageSlider from '../components/ImageSlider.svelte';
 
-	let backgroundImages = [
-		'/src/assets/image-fader/hero-one.jpg',
-		'/src/assets/image-fader/hero-two.jpg',
-		'/src/assets/image-fader/hero-three.jpg'
-	];
+	import { backgroundImages } from '../constants/images';
 </script>
 
-<HeroBanner
-	src="/src/assets/image-fader/person-one.png"
-	headline="Lean green."
-	subtitle="Clever little subtitle."
-	buttonText="Get in touch"
-	href="/"
-	colour="primary"
-/>
+<Container fullWidth>
+	<HeroBanner
+		src="assets/default/person-one.png"
+		headline="Lean green."
+		subtitle="Clever little subtitle."
+		buttonText="Get in touch"
+		href="/"
+		colour="primary"
+	/>
+</Container>
 
-<ProductCentred
-	title="Product showcase"
-	subtitle="*Terms and Conditions would probably be pretty good here"
-	imageSrc="./src/assets/products/iphone-small.png"
-	imageAlt="iphone small"
-/>
+<Container fullWidth>
+	<ImageSlider {backgroundImages} interval={9454} blocker={0.5} />
+</Container>
 
-<HeroBanner
-	src="/src/assets/image-fader/person-two.png"
-	headline="Slices for half-time."
-	subtitle="Clever little subtitle."
-	buttonText="Get in touch"
-	href="/"
-	colour="tertiary"
-	reverse
-/>
+<Container>
+	<ProductCentred
+		title="Product showcase"
+		subtitle="*Terms and Conditions would probably be pretty good here"
+		imageSrc="assets/products/iphone-small.png"
+		imageAlt="iphone small"
+	/>
+</Container>
 
-<ImageFader {backgroundImages} interval={6000} height="500px" />
+<Container>
+	<HeroBanner
+		src="assets/default/person-two.png"
+		headline="Slices for half-time."
+		subtitle="Clever little subtitle."
+		buttonText="Get in touch"
+		href="/"
+		colour="tertiary"
+		reverse
+	/>
+</Container>
 
-<HeroBanner
-	src="/src/assets/image-fader/person-three.png"
-	headline="Pretty in pink."
-	subtitle="Clever little subtitle."
-	buttonText="Get in touch"
-	href="/"
-	colour="fourth"
-/>
+<Container>
+	<ImageFader {backgroundImages} interval={6000} height="500px" blocker={0.2} />
+</Container>
 
-<TwoColumn
-	reverse
-	textTitle="Nonsense from Jeff Goldblum"
-	textCopy="Yeah, but John, if The Pirates of the Caribbean breaks down, the pirates don’t eat the tourists. Yes, Yes, without the oops! You really think you can fly that thing?"
-	imageSrc="./src/assets/products/laptop-small.png"
-	imageAlt="laptop small"
-/>
+<Container>
+	<HeroBanner
+		src="assets/default/person-three.png"
+		headline="Pretty in pink."
+		subtitle="Clever little subtitle."
+		buttonText="Get in touch"
+		href="/"
+		colour="fourth"
+	/>
+</Container>
 
-<HeroBanner
-	src="/src/assets/responsive-design/responsive-alternate-large.png"
-	headline="Brothers."
-	subtitle="Clever little subtitle."
-	buttonText="Get in touch"
-	href="/"
-	colour="secondary"
-/>
+<Container>
+	<TwoColumn
+		reverse
+		textTitle="Nonsense from Jeff Goldblum"
+		textCopy="Yeah, but John, if The Pirates of the Caribbean breaks down, the pirates don’t eat the tourists. Yes, Yes, without the oops! You really think you can fly that thing?"
+		imageSrc="assets/products/laptop-small.png"
+		imageAlt="laptop small"
+	/>
+</Container>
+
+<Container>
+	<HeroBanner
+		src="assets/responsive-design/responsive-alternate-large.png"
+		headline="Brothers."
+		subtitle="Clever little subtitle."
+		buttonText="Get in touch"
+		href="/"
+		colour="secondary"
+	/>
+</Container>
 
 <style lang="scss">
 </style>

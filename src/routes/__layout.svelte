@@ -1,6 +1,7 @@
 <script>
 	import Nav from '../components/header/Nav.svelte';
 	import Footer from '../components/Footer.svelte';
+	import Container from '../components/Container.svelte';
 </script>
 
 <div class="app-container">
@@ -14,6 +15,10 @@
 </div>
 
 <style lang="scss">
+	.body-container {
+		overflow-x: hidden;
+	}
+
 	:global(*) {
 		margin: 0;
 		padding: 0;
@@ -28,8 +33,4 @@
 	:global(li) {
 		list-style: none;
 	}
-
-	// :global(body) {
-	// 	overflow-x: hidden;
-	// }
 </style>

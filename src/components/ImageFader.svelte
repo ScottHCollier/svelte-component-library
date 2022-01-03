@@ -1,9 +1,11 @@
 <script>
 	import { fade } from 'svelte/transition';
+	import ImageBlocker from './ImageBlocker.svelte';
 
 	export let backgroundImages;
 	export let interval;
 	export let height;
+	export let blocker = 0;
 
 	let backgroundIndex = 0;
 	setInterval(() => {
@@ -11,23 +13,30 @@
 	}, interval);
 </script>
 
-<div class="image-fader" style="height: {height}">
-	{#each [backgroundImages[backgroundIndex]] as src (backgroundIndex)}
-		<div class="image" transition:fade style="background-image: url({src});" alt="test" />
-	{/each}
+<div class="fader-container">
+	<div class="image-fader" style="height: {height}">
+		{#each [backgroundImages[backgroundIndex]] as image (backgroundIndex)}
+			<div class="image" transition:fade style="background-image: url({image.path});" alt="test" />
+		{/each}
+	</div>
+	<ImageBlocker {blocker} />
 </div>
 
 <style lang="scss">
-	.image-fader {
+	.fader-container {
 		position: relative;
 
-		.image {
-			height: 100%;
-			width: 100%;
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: cover;
-			position: absolute;
+		.image-fader {
+			position: relative;
+
+			.image {
+				height: 100%;
+				width: 100%;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				position: absolute;
+			}
 		}
 	}
 </style>

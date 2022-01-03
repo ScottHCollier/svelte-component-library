@@ -13,7 +13,9 @@
 	<div class="nav-slider">
 		{#each sliderMessages as sliderMessage (sliderMessage.id)}
 			<div
-				class="message {sliderMessages.indexOf(sliderMessage) === 4 ? 'transitioning' : ''}"
+				class="message {sliderMessages.indexOf(sliderMessage) === sliderMessages.length - 1
+					? 'transitioning'
+					: ''}"
 				animate:flip={{ duration: 1600 }}
 			>
 				{sliderMessage.message}
@@ -29,9 +31,7 @@
 
 		.nav-slider {
 			height: 30px;
-
 			@include flex-box;
-			padding: 0 $nav-padding-width;
 			font-size: $font-copy-small;
 
 			.message {
