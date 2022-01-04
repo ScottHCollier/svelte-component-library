@@ -6,9 +6,9 @@
 	import ProductCentred from '../components/ProductCentred.svelte';
 	import ImageSlider from '../components/ImageSlider.svelte';
 	import TwoColumn from '../components/TwoColumn.svelte';
+	import ColumnCard from '../components/ColumnCard.svelte';
 
 	import { backgroundImages } from '../constants/images';
-	import ColumnCard from '../components/ColumnCard.svelte';
 </script>
 
 <Container fullWidth>
@@ -108,5 +108,13 @@
 	/>
 </Container>
 
+<Container>
+	<div class="test">Test div</div>
+</Container>
+
 <style lang="scss">
+	.test {
+		@include flex-box;
+		padding: 50px 0;
+	}
 </style>
