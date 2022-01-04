@@ -2,11 +2,22 @@
 	export let isGoogleSignIn = false;
 	export let text;
 	export let type;
+	export let onClick = null;
 </script>
 
-<button {type} class={`${isGoogleSignIn ? 'google-sign-in' : ''} custom-button`}>
-	{text}
-</button>
+{#if onClick}
+	<button
+		{type}
+		on:click|once={onClick}
+		class={`${isGoogleSignIn ? 'google-sign-in' : ''} custom-button`}
+	>
+		{text}
+	</button>
+{:else}
+	<button {type} class={`${isGoogleSignIn ? 'google-sign-in' : ''} custom-button`}>
+		{text}
+	</button>
+{/if}
 
 <style lang="scss">
 	.custom-button {

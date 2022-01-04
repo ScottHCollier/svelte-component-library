@@ -1,8 +1,11 @@
 <script>
 	import Form from '../../components/Atoms/Form.svelte';
 	import { Validators } from '../../utils/Validators';
+	import { signInWithGoogle, auth } from '../../utils/firebase';
+	import { signInWithEmailAndPassword } from 'firebase/auth';
 
-	import Input from '../../components/Atoms/Input.svelte';
+	import InputText from '../../components/Atoms/InputText.svelte';
+	import InputPassword from '../../components/Atoms/InputPassword.svelte';
 	import Error from '../../components/Atoms/Error.svelte';
 	import Button from '../../components/Atoms/Button.svelte';
 
@@ -19,14 +22,16 @@
 		}
 	};
 
-	function onSubmit(e) {
-		if (e?.detail?.valid) {
-			console.log(e.detail.data);
+	const onSubmit = async (e) => {
+		try {
+			let { email, password } = e.detail.data;
+			const success = await signInWithEmailAndPassword(auth, email, password);
+			console.log(success);
 			formEl.reset();
-		} else {
-			console.log('Invalid Form');
+		} catch (error) {
+			console.log('Error logging in', error.message);
 		}
-	}
+	};
 </script>
 
 <div class="sign-in-and-sign-up">
@@ -35,18 +40,23 @@
 		<span>Sign in the your email and password</span>
 		<Form {form} on:submit={onSubmit} bind:this={formEl}>
 			<div class="input-group">
-				<Input label="Email" name="email" />
+				<InputText label="Email" name="email" />
 				<Error fieldName="email" errorKey="required" message="Email is required" />
 				<Error fieldName="email" errorKey="validEmail" message="Valid email is required" />
 			</div>
 			<div class="input-group">
-				<Input label="Password" name="password" />
+				<InputPassword label="Password" name="password" />
 				<Error fieldName="password" errorKey="required" message="Password is required" />
 				<Error fieldName="password" errorKey="minLength" />
 			</div>
 			<div class="buttons">
 				<Button type="submit" text="Sign In" />
-				<Button type="button" text="Sign in with Google" isGoogleSignIn />
+				<Button
+					type="button"
+					text="Sign in with Google"
+					isGoogleSignIn
+					onClick={signInWithGoogle}
+				/>
 			</div>
 		</Form>
 	</div>
@@ -56,16 +66,16 @@
 		<span>Sign up with your email and password</span>
 		<Form {form} on:submit={onSubmit} bind:this={formEl}>
 			<div class="input-group">
-				<Input label="Name" name="name" />
+				<InputText label="Name" name="name" />
 				<Error fieldName="name" errorKey="required" message="Name is required" />
 			</div>
 			<div class="input-group">
-				<Input label="Email" name="email" />
+				<InputText label="Email" name="email" />
 				<Error fieldName="email" errorKey="required" message="Email is required" />
 				<Error fieldName="email" errorKey="validEmail" message="Valid email is required" />
 			</div>
 			<div class="input-group">
-				<Input label="Password" name="password" />
+				<InputPassword label="Password" name="password" />
 				<Error fieldName="password" errorKey="required" message="Password is required" />
 				<Error fieldName="password" errorKey="minLength" />
 			</div>
