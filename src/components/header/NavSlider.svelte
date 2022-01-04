@@ -28,6 +28,7 @@
 	.slider-container {
 		@include flex-box;
 		overflow-x: hidden;
+		padding: 0 $container-padding-width;
 
 		.nav-slider {
 			height: 30px;
