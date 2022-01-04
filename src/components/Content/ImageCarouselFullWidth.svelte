@@ -1,6 +1,6 @@
 <script>
 	import { flip } from 'svelte/animate';
-	import ImageBlocker from './ImageBlocker.svelte';
+	import ImageBlocker from '../Atoms/ImageBlocker.svelte';
 
 	export let interval = 3000;
 	export let blocker = 0;

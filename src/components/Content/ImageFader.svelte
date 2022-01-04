@@ -1,6 +1,6 @@
 <script>
 	import { fade } from 'svelte/transition';
-	import ImageBlocker from './ImageBlocker.svelte';
+	import ImageBlocker from '../Atoms/ImageBlocker.svelte';
 
 	export let backgroundImages;
 	export let interval;

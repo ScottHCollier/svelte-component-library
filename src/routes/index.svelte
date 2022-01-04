@@ -1,15 +1,22 @@
 <script>
-	import Container from '../components/Container.svelte';
-	import TwoColumnTest from '../components/TwoColumnTest.svelte';
-	import ImageFader from '../components/ImageFader.svelte';
-	import HeroBanner from '../components/HeroBanner.svelte';
-	import ProductCentred from '../components/ProductCentred.svelte';
-	import ImageSlider from '../components/ImageSlider.svelte';
-	import TwoColumn from '../components/TwoColumn.svelte';
-	import ColumnCard from '../components/ColumnCard.svelte';
+	import Container from '../components/Atoms/Container.svelte';
+	import TwoColumnTest from '../components/Content/TwoColumnTest.svelte';
+	import ImageFader from '../components/Content/ImageFader.svelte';
+	import HeroBanner from '../components/Content/HeroBanner.svelte';
+	import ProductCentred from '../components/Content/ProductCentred.svelte';
+	import ImageCarouselFullWidth from '../components/Content/ImageCarouselFullWidth.svelte';
+	import ImageCarousel from '../components/Content/ImageCarousel.svelte';
+	import TwoColumn from '../components/Content/TwoColumn.svelte';
+	import ColumnCard from '../components/Atoms/ColumnCard.svelte';
 
 	import { backgroundImages } from '../constants/images';
+	import { sliderMessages } from '../constants/messages';
+	import TextSlider from '../components/Atoms/TextSlider.svelte';
 </script>
+
+<Container>
+	<TextSlider interval={6000} {sliderMessages} />
+</Container>
 
 <Container fullWidth>
 	<HeroBanner
@@ -68,9 +75,7 @@
 	</TwoColumn>
 </Container>
 
-<Container fullWidth>
-	<ImageSlider {backgroundImages} interval={5454} blocker={0.5} height="700px" />
-</Container>
+<ImageCarouselFullWidth {backgroundImages} interval={5454} blocker={0.5} height="700px" />
 
 <Container>
 	<TwoColumnTest
@@ -109,12 +114,5 @@
 </Container>
 
 <Container>
-	<div class="test">Test div</div>
+	<ImageCarousel {backgroundImages} interval={4000} blocker={0.5} height="300px" />
 </Container>
-
-<style lang="scss">
-	.test {
-		@include flex-box;
-		padding: 50px 0;
-	}
-</style>

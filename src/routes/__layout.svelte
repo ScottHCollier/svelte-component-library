@@ -1,12 +1,12 @@
 <script>
-	import Nav from '../components/header/Nav.svelte';
-	import Footer from '../components/Footer.svelte';
+	import Header from '../components/General/Header.svelte';
+	import Footer from '../components/General/Footer.svelte';
 
-	import '../styles/global.scss';
+	import '../resources/sass/global.scss';
 </script>
 
 <div class="app-container">
-	<Nav />
+	<Header />
 
 	<div class="body-container">
 		<slot />

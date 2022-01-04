@@ -34,5 +34,10 @@ $font-copy-large: 1.1rem;
 $font-copy-medium: 0.9rem;
 $font-copy-small: 0.7rem;
 
-// Nav
-$container-padding-width: 13.5%;
+// Widths
+// Change both container margin width and margin width calc to keep carousel within container width
+$container-margin-width: 13.5%;
+$container-margin-width-calc: 13.5;
+$image-carousel-vw: calc(100 - (2 * $container-margin-width-calc)) + vw;
+
+$header-full-width-padding: 20px;

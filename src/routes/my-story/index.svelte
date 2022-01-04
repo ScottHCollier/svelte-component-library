@@ -1,6 +1,6 @@
 <script>
-	import Container from '../../components/Container.svelte';
-	import HeroBanner from '../../components/HeroBanner.svelte';
+	import Container from '../../components/Atoms/Container.svelte';
+	import HeroBanner from '../../components/Content/HeroBanner.svelte';
 </script>
 
 <Container fullWidth>
@@ -25,6 +25,3 @@
 		colour="secondary"
 	/>
 </Container>
-
-<style lang="scss">
-</style>

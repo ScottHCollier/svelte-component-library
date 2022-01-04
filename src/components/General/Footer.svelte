@@ -1,6 +1,3 @@
-<script>
-</script>
-
 <footer>Test Footer</footer>
 
 <style lang="scss">

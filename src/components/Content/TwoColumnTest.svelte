@@ -1,6 +1,6 @@
 <script>
-	import ImageCard from './ImageCard.svelte';
-	import TextBox from './TextBox.svelte';
+	import ImageCard from '../Atoms/ImageCard.svelte';
+	import TextBox from '../Atoms/TextBox.svelte';
 
 	export let reverse;
 	export let imageSrc;

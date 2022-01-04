@@ -1,6 +1,4 @@
 <script>
-	import { compute_rest_props } from 'svelte/internal';
-
 	export let src;
 	export let alt;
 	export let headline;
