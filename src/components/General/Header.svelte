@@ -1,9 +1,25 @@
 <script>
+	import { user } from '../../utils/stores';
+
+	let user_value;
+
+	user.subscribe((value) => {
+		user_value = value;
+	});
+
+	function logout() {
+		$user = null;
+	}
+
 	export let fullWidth = false;
 </script>
 
 <div class="nav-admin {!fullWidth ? 'full-width' : null}">
-	<a href="/signin">Sign In / Register</a>
+	{#if user_value !== null}
+		<div class="logout" on:click={logout}>Log out</div>
+	{:else}
+		<a href="/signin">Sign In / Register</a>
+	{/if}
 </div>
 <nav class="nav {!fullWidth ? 'full-width' : null}">
 	<div class="left-column"><a href="/">SC</a></div>
@@ -39,6 +55,12 @@
 
 		&.full-width {
 			padding: 0 $container-margin-width;
+		}
+
+		.logout {
+			&:hover {
+				cursor: pointer;
+			}
 		}
 	}
 

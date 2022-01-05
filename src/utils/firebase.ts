@@ -14,10 +14,10 @@ const config = {
 
 const firebase = initializeApp(config);
 
-const provider = new GoogleAuthProvider();
+export const provider = new GoogleAuthProvider();
 provider.setCustomParameters({ prompt: 'select_account' });
 
-const db = getFirestore(firebase);
+export const db = getFirestore(firebase);
 
 export const auth = getAuth(firebase);
 
@@ -51,11 +51,12 @@ export const signInWithGoogle = async () => {
 	try {
 		const result = await signInWithPopup(auth, provider);
 		// This gives you a Google Access Token. You can use it to access the Google API.
-		const credential = GoogleAuthProvider.credentialFromResult(result);
-		const token = credential.accessToken;
+		// const credential = GoogleAuthProvider.credentialFromResult(result);
+		// const token = credential.accessToken;
 		// The signed-in user info.
 		const user = result.user;
-		console.warn(credential, token, user);
+		// console.warn(credential, token, user);
+		console.log(user.displayName);
 	} catch (error) {
 		// Handle Errors here.
 		const errorCode = error.code;

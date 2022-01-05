@@ -1,8 +1,16 @@
 <script>
 	import Form from '../../components/Atoms/Form.svelte';
 	import { Validators } from '../../utils/Validators';
-	import { signInWithGoogle, auth } from '../../utils/firebase';
-	import { signInWithEmailAndPassword } from 'firebase/auth';
+	import { auth, provider, db } from '../../utils/firebase';
+	import {
+		signInWithEmailAndPassword,
+		signInWithPopup,
+		GoogleAuthProvider,
+		createUserWithEmailAndPassword
+	} from 'firebase/auth';
+	import { user } from '../../utils/stores';
+
+	import { collection, addDoc } from 'firebase/firestore';
 
 	import InputText from '../../components/Atoms/InputText.svelte';
 	import InputPassword from '../../components/Atoms/InputPassword.svelte';
@@ -22,14 +30,53 @@
 		}
 	};
 
-	const onSubmit = async (e) => {
+	const signInWithGoogle = async () => {
+		let userValue = null;
 		try {
+			const result = await signInWithPopup(auth, provider);
+			// This gives you a Google Access Token. You can use it to access the Google API.
+			// const credential = GoogleAuthProvider.credentialFromResult(result);
+			// const token = credential.accessToken;
+			// The signed-in user info.
+			userValue = result.user.displayName;
+			// console.warn(credential, token, user);
+		} catch (error) {
+			// Handle Errors here.
+			const errorCode = error.code;
+			const errorMessage = error.message;
+			// The email of the user's account used.
+			const email = error.email;
+			// The AuthCredential type that was used.
+			const credential = GoogleAuthProvider.credentialFromError(error);
+			console.warn(credential, errorCode, errorMessage, email);
+		}
+		$user = userValue;
+	};
+
+	const signInWithEmail = async (e) => {
+		try {
+			formEl.reset();
 			let { email, password } = e.detail.data;
 			const success = await signInWithEmailAndPassword(auth, email, password);
-			console.log(success);
-			formEl.reset();
+			$user = success;
 		} catch (error) {
 			console.log('Error logging in', error.message);
+		}
+	};
+
+	const createNewUser = async (e) => {
+		try {
+			formEl.reset();
+			let { name, email, password } = e.detail.data;
+			const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+			const docRef = await addDoc(collection(db, 'users'), {
+				name,
+				email
+			});
+			console.log('Document written with ID: ', docRef.id);
+			$user = userCredential.user;
+		} catch (error) {
+			console.log('Error creating new user', error.message);
 		}
 	};
 </script>
@@ -38,7 +85,7 @@
 	<div class="sign-in">
 		<h2 class="title">I already have an account</h2>
 		<span>Sign in the your email and password</span>
-		<Form {form} on:submit={onSubmit} bind:this={formEl}>
+		<Form {form} on:submit={signInWithEmail} bind:this={formEl}>
 			<div class="input-group">
 				<InputText label="Email" name="email" />
 				<Error fieldName="email" errorKey="required" message="Email is required" />
@@ -64,7 +111,7 @@
 	<div class="sign-up">
 		<h2 class="title">I do not have an account</h2>
 		<span>Sign up with your email and password</span>
-		<Form {form} on:submit={onSubmit} bind:this={formEl}>
+		<Form {form} on:submit={createNewUser} bind:this={formEl}>
 			<div class="input-group">
 				<InputText label="Name" name="name" />
 				<Error fieldName="name" errorKey="required" message="Name is required" />
