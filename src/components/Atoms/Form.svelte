@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
-	import type { ValidatorFn, ValidatorResult } from '../../utils/Validators';
+	import type { ValidatorFn, ValidatorResult } from '$lib/Validators';
 	import { createEventDispatcher } from 'svelte';
 	import { writable } from 'svelte/store';
 

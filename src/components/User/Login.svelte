@@ -1,6 +1,6 @@
 <script>
 	import Form from '../../components/Atoms/Form.svelte';
-	import { Validators } from '../../utils/Validators';
+	import { Validators } from '$lib/Validators';
 	import InputText from '../../components/Atoms/InputText.svelte';
 	import InputPassword from '../../components/Atoms/InputPassword.svelte';
 	import Error from '../../components/Atoms/Error.svelte';
