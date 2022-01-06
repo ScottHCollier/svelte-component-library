@@ -3,3 +3,191 @@
 	justify-content: center;
 	align-items: center;
 }
+
+// sass mixins
+
+@mixin rounded($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin linear-gradient($fromColor, $toColor) {
+	background-color: $toColor; /* Fallback Color */
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		from($fromColor),
+		to($toColor)
+	); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(
+		top,
+		$fromColor,
+		$toColor
+	); /* Chrome 10+, Saf5.1+, iOS 5+ */
+	background-image: -moz-linear-gradient(top, $fromColor, $toColor); /* FF3.6 */
+	background-image: -ms-linear-gradient(top, $fromColor, $toColor); /* IE10 */
+	background-image: -o-linear-gradient(top, $fromColor, $toColor); /* Opera 11.10+ */
+	background-image: linear-gradient(top, $fromColor, $toColor);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$fromColor}', EndColorStr='#{$toColor}');
+	behavior: $pie;
+}
+
+@mixin reflected-gradient($fromColor, $middleColor, $toColor) {
+	background: $fromColor; /* Old browsers */
+	background: -moz-linear-gradient(
+		top,
+		$fromColor 0%,
+		$middleColor 47%,
+		$toColor 100%
+	); /* FF3.6+ */
+	background: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0%, $fromColor),
+		color-stop(47%, $middleColor),
+		color-stop(100%, $toColor)
+	); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(
+		top,
+		$fromColor 0%,
+		$middleColor 47%,
+		$toColor 100%
+	); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(
+		top,
+		$fromColor 0%,
+		$middleColor 47%,
+		$toColor 100%
+	); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, $fromColor 0%, $middleColor 47%, $toColor 100%); /* IE10+ */
+	background: linear-gradient(to bottom, $fromColor 0%, $middleColor 47%, $toColor 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$fromColor', endColorstr='$toColor',GradientType=0 ); /* IE6-9 */
+	behavior: $pie;
+}
+
+@mixin linear-texture1-gradient($fromColor, $toColor) {
+	background: $toColor;
+	background-image: url('../images/TextureDarkBackg.png'); /* fallback */
+	background-image: url('../images/TextureDarkBackg.png'),
+		-webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); // Saf4+, Chrome
+	background-image: url('../images/TextureDarkBackg.png'),
+		-webkit-linear-gradient(top, $fromColor, $toColor); // Chrome 10+, Saf5.1+
+	background-image: url('../images/TextureDarkBackg.png'),
+		-moz-linear-gradient(top, $fromColor, $toColor); //FF3.6+
+	background-image: url('../images/TextureDarkBackg.png'),
+		-ms-linear-gradient(top, $fromColor, $toColor); // IE10
+	background-image: url('../images/TextureDarkBackg.png'),
+		-o-linear-gradient(top, $fromColor, $toColor); // Opera 11.10+
+	background-image: url('../images/TextureDarkBackg.png'),
+		linear-gradient(top, $fromColor, $toColor); //  W3C
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$fromColor}', EndColorStr='#{$toColor}');
+	behavior: $pie;
+}
+
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@mixin word-wrap() {
+	word-break: break-word;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
+}
+
+@mixin ellipsis() {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+@mixin font-size($sizeValue: 1.6) {
+	font-size: ($sizeValue * 10) + px;
+	font-size: $sizeValue + rem;
+}
+
+@mixin box-shadow($horiz: 0.5em, $vert: 0.5em, $blur: 0px, $spread: 0px, $color: #000000) {
+	-webkit-box-shadow: $horiz $vert $blur $spread $color;
+	-moz-box-shadow: $horiz $vert $blur $spread $color;
+	box-shadow: $horiz $vert $blur $spread $color;
+}
+
+@mixin word-wrap() {
+	word-break: break-word;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
+}
+
+// Arthur additional mixins
+@mixin transition($trans) {
+	-webkit-transition: $trans;
+	-moz-transition: $trans;
+	-o-transition: $trans;
+	transition: $trans;
+}
+
+@mixin transition-delay($delay) {
+	-webkit-transition-delay: $delay;
+	-moz-transition-delay: $delay;
+	-o-transition-delay: $delay;
+	transition-delay: $delay;
+}
+
+@mixin absolute() {
+	position: absolute;
+	display: block;
+	content: '';
+}
+
+@mixin rotate($rotatedeg) {
+	-webkit-transform: rotate($rotatedeg + deg);
+	-moz-transform: rotate($rotatedeg + deg);
+	-ms-transform: rotate($rotatedeg + deg);
+	transform: rotate($rotatedeg + deg);
+}
+
+@mixin transform($rotatedeg, $transX, $transY) {
+	-webkit-transform: translate($transX, $transY) rotate($rotatedeg + deg);
+	-moz-transform: translate($transX, $transY) rotate($rotatedeg + deg);
+	-ms-transform: translate($transX, $transY) rotate($rotatedeg + deg);
+	transform: translate($transX, $transY) rotate($rotatedeg + deg);
+}
+
+@mixin cross-icon($height, $width, $colour, $hoverColour) {
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		height: $height;
+		width: $width;
+		background-color: $colour;
+	}
+
+	&:before {
+		transform: rotate(45deg);
+	}
+
+	&:after {
+		transform: rotate(-45deg);
+	}
+
+	&:hover,
+	&:focus {
+		&:before,
+		&:after {
+			background-color: $hoverColour;
+		}
+	}
+}

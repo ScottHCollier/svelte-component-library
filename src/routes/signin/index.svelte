@@ -1,6 +1,6 @@
 <script>
 	import Form from '../../components/Atoms/Form.svelte';
-	import { Validators } from '../../utils/Validators';
+	import { Validators } from '$lib/Validators';
 	import { auth, provider, db } from '../../utils/firebase';
 	import {
 		signInWithEmailAndPassword,
@@ -8,7 +8,7 @@
 		GoogleAuthProvider,
 		createUserWithEmailAndPassword
 	} from 'firebase/auth';
-	import { user } from '../../utils/stores';
+	import { user } from '$lib/sessionStore';
 
 	import { collection, addDoc } from 'firebase/firestore';
 

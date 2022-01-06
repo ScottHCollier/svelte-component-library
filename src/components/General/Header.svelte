@@ -1,5 +1,5 @@
 <script>
-	import { user } from '../../utils/stores';
+	import { user } from '$lib/sessionStore';
 
 	let user_value;
 
