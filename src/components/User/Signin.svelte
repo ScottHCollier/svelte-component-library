@@ -1,24 +1,11 @@
 <script>
-	import { supabase } from '$lib/supabaseClient';
-
 	let loading = false;
 	let email;
 
-	const handleLogin = async () => {
-		try {
-			loading = true;
-			const { error } = await supabase.auth.signIn({ email });
-			if (error) throw error;
-			alert('Check your email for the login link!');
-		} catch (error) {
-			alert(error.error_description || error.message);
-		} finally {
-			loading = false;
-		}
-	};
+	const handleLogin = async () => {};
 </script>
 
-<form class="row flex flex-center" on:submit|preventDefault={handleLogin}>
+<form on:submit|preventDefault={handleLogin}>
 	<div class="col-6 form-widget">
 		<h1 class="header">Supabase + Svelte</h1>
 		<p class="description">Sign in via magic link with your email below</p>

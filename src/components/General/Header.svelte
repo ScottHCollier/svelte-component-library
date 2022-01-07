@@ -1,15 +1,12 @@
 <script>
-	import { user } from '$lib/sessionStore';
+	import { initAuth } from '$lib/firebaseAuth';
+	let { user, logout } = initAuth();
 
 	let user_value;
 
 	user.subscribe((value) => {
 		user_value = value;
 	});
-
-	function logout() {
-		$user = null;
-	}
 
 	export let fullWidth = false;
 </script>

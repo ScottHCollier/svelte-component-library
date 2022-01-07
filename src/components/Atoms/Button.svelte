@@ -8,7 +8,7 @@
 {#if onClick}
 	<button
 		{type}
-		on:click|once={onClick}
+		on:click|preventDefault={onClick}
 		class={`${isGoogleSignIn ? 'google-sign-in' : ''} custom-button`}
 	>
 		{text}

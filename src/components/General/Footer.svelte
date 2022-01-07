@@ -1,4 +1,4 @@
-<footer>Test Footer</footer>
+<footer>TEST FOOTER</footer>
 
 <style lang="scss">
 	footer {

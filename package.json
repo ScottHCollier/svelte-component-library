@@ -30,7 +30,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@supabase/supabase-js": "^1.29.1",
 		"dotenv": "^10.0.0",
 		"firebase": "^9.6.1"
 	}
