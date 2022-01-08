@@ -19,6 +19,7 @@ import {
 	measurementId
 } from '$lib/env';
 
+import { goto } from '$app/navigation';
 import { readable } from 'svelte/store';
 
 const config = {
@@ -71,8 +72,10 @@ export const initAuth = (useRedirect = false) => {
 		try {
 			if (useRedirect) {
 				await signInWithRedirect(auth, provider);
+				goto('/');
 			} else {
 				await signInWithPopup(auth, provider);
+				goto('/');
 			}
 			// This gives you a Google Access Token. You can use it to access the Google API.
 			// const credential = GoogleAuthProvider.credentialFromResult(result);

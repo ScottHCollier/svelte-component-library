@@ -14,6 +14,7 @@
 <div class="nav-admin {!fullWidth ? 'full-width' : null}">
 	{#if user_value !== null}
 		<div class="logout" on:click={logout}>Log out</div>
+		<a class="my-account" href="/myaccount">My Account</a>
 	{:else}
 		<a href="/signin">Sign In / Register</a>
 	{/if}
@@ -58,6 +59,10 @@
 			&:hover {
 				cursor: pointer;
 			}
+		}
+
+		.my-account {
+			margin-left: 20px;
 		}
 	}
 

@@ -6,6 +6,7 @@
 	import Error from '../../components/Atoms/Error.svelte';
 	import Button from '../../components/Atoms/Button.svelte';
 	import { initAuth } from '$lib/firebaseAuth';
+	import { goto } from '$app/navigation';
 
 	let form = {
 		name: {
@@ -27,6 +28,7 @@
 		try {
 			error = null;
 			await loginWithEmailPassword(email, password);
+			goto('/');
 		} catch (err) {
 			error = err;
 		}
@@ -37,70 +39,68 @@
 		try {
 			error = null;
 			await createNewUser(name, email, password);
+			goto('/');
 		} catch (err) {
 			error = err;
 		}
 	};
 </script>
 
-<div class="wrapper">
-	{#if $user}
-		<div class="logout">
-			<h2>{$user.email}</h2>
-			<!-- <button type="button" on:click={logout}>Logout</button> -->
-			<Button type="button" onClick={logout} text="Log out" />
+{#if $user}
+	<div class="logout">
+		<h2>{$user.email}</h2>
+		<Button type="button" onClick={logout} text="Log out" />
+	</div>
+{:else}
+	<div class="sign-in-and-sign-up">
+		<div class="sign-in">
+			<h2 class="title">I already have an account</h2>
+			<span>Sign in the your email and password</span>
+			<Form {form} on:submit={loginHandler}>
+				<div class="input-group">
+					<InputText label="Email" name="email" />
+					<Error fieldName="email" errorKey="required" message="Email is required" />
+					<Error fieldName="email" errorKey="validEmail" message="Valid email is required" />
+				</div>
+				<div class="input-group">
+					<InputPassword label="Password" name="password" />
+					<Error fieldName="password" errorKey="required" message="Password is required" />
+					<Error fieldName="password" errorKey="minLength" />
+				</div>
+				<div class="buttons">
+					<Button type="submit" text="Sign In" />
+					<Button
+						type="button"
+						text="Sign in with Google"
+						isGoogleSignIn
+						onClick={loginWithGoogle}
+					/>
+				</div>
+			</Form>
 		</div>
-	{:else}
-		<div class="sign-in-and-sign-up">
-			<div class="sign-in">
-				<h2 class="title">I already have an account</h2>
-				<span>Sign in the your email and password</span>
-				<Form {form} on:submit={loginHandler}>
-					<div class="input-group">
-						<InputText label="Email" name="email" />
-						<Error fieldName="email" errorKey="required" message="Email is required" />
-						<Error fieldName="email" errorKey="validEmail" message="Valid email is required" />
-					</div>
-					<div class="input-group">
-						<InputPassword label="Password" name="password" />
-						<Error fieldName="password" errorKey="required" message="Password is required" />
-						<Error fieldName="password" errorKey="minLength" />
-					</div>
-					<div class="buttons">
-						<Button type="submit" text="Sign In" />
-						<Button
-							type="button"
-							text="Sign in with Google"
-							isGoogleSignIn
-							onClick={loginWithGoogle}
-						/>
-					</div>
-				</Form>
-			</div>
-			<div class="sign-up">
-				<h2 class="title">I do not have an account</h2>
-				<span>Sign up with your email and password</span>
-				<Form {form} on:submit={newUserHandler}>
-					<div class="input-group">
-						<InputText label="Name" name="name" />
-						<Error fieldName="name" errorKey="required" message="Name is required" />
-					</div>
-					<div class="input-group">
-						<InputText label="Email" name="email" />
-						<Error fieldName="email" errorKey="required" message="Email is required" />
-						<Error fieldName="email" errorKey="validEmail" message="Valid email is required" />
-					</div>
-					<div class="input-group">
-						<InputPassword label="Password" name="password" />
-						<Error fieldName="password" errorKey="required" message="Password is required" />
-						<Error fieldName="password" errorKey="minLength" />
-					</div>
-					<Button type="submit" text="Sign Up" />
-				</Form>
-			</div>
+		<div class="sign-up">
+			<h2 class="title">I do not have an account</h2>
+			<span>Sign up with your email and password</span>
+			<Form {form} on:submit={newUserHandler}>
+				<div class="input-group">
+					<InputText label="Name" name="name" />
+					<Error fieldName="name" errorKey="required" message="Name is required" />
+				</div>
+				<div class="input-group">
+					<InputText label="Email" name="email" />
+					<Error fieldName="email" errorKey="required" message="Email is required" />
+					<Error fieldName="email" errorKey="validEmail" message="Valid email is required" />
+				</div>
+				<div class="input-group">
+					<InputPassword label="Password" name="password" />
+					<Error fieldName="password" errorKey="required" message="Password is required" />
+					<Error fieldName="password" errorKey="minLength" />
+				</div>
+				<Button type="submit" text="Sign Up" />
+			</Form>
 		</div>
-	{/if}
-</div>
+	</div>
+{/if}
 
 <style lang="scss">
 	.logout {
