@@ -6,62 +6,59 @@
 	import ContactlessPaymentCircle from 'svelte-material-icons/ContactlessPayment.svelte';
 
 	export let currentPage;
+	export let pages;
 </script>
 
 <ul class="my-account-links">
-	<li class={currentPage === 'Home' ? 'current-page' : ''}>
-		<AccountCircle color={currentPage === 'Home' ? 'blue' : 'black'} height="2em" width="2em" />
+	<li class={currentPage === pages[0] ? 'current-page' : ''}>
+		<AccountCircle color={currentPage === pages[0] ? 'blue' : 'black'} height="2em" width="2em" />
 		<div
 			on:click={() => {
-				currentPage = 'Home';
+				currentPage = pages[0];
 			}}
 		>
 			Home
 		</div>
 	</li>
-	<li class={currentPage === 'Personal info' ? 'current-page' : ''}>
-		<Contacts color={currentPage === 'Personal info' ? 'blue' : 'black'} height="2em" width="2em" />
+	<li class={currentPage === pages[1] ? 'current-page' : ''}>
+		<Contacts color={currentPage === pages[1] ? 'blue' : 'black'} height="2em" width="2em" />
 		<div
 			on:click={() => {
-				currentPage = 'Personal info';
+				currentPage = pages[1];
 			}}
 		>
 			Personal info
 		</div>
 	</li>
-	<li class={currentPage === 'Data and privacy' ? 'current-page' : ''}>
-		<ChartDonut
-			color={currentPage === 'Data and privacy' ? 'blue' : 'black'}
-			height="2em"
-			width="2em"
-		/>
+	<li class={currentPage === pages[2] ? 'current-page' : ''}>
+		<ChartDonut color={currentPage === pages[2] ? 'blue' : 'black'} height="2em" width="2em" />
 		<div
 			on:click={() => {
-				currentPage = 'Data and privacy';
+				currentPage = pages[2];
 			}}
 		>
 			Data and privacy
 		</div>
 	</li>
-	<li class={currentPage === 'Security' ? 'current-page' : ''}>
-		<Security color={currentPage === 'Security' ? 'blue' : 'black'} height="2em" width="2em" />
+	<li class={currentPage === pages[3] ? 'current-page' : ''}>
+		<Security color={currentPage === pages[3] ? 'blue' : 'black'} height="2em" width="2em" />
 		<div
 			on:click={() => {
-				currentPage = 'Security';
+				currentPage = pages[3];
 			}}
 		>
 			Security
 		</div>
 	</li>
-	<li class={currentPage === 'Payments and subscriptions' ? 'current-page' : ''}>
+	<li class={currentPage === pages[4] ? 'current-page' : ''}>
 		<ContactlessPaymentCircle
-			color={currentPage === 'Payments and subscriptions' ? 'blue' : 'black'}
+			color={currentPage === pages[4] ? 'blue' : 'black'}
 			height="2em"
 			width="2em"
 		/>
 		<div
 			on:click={() => {
-				currentPage = 'Payments and subscriptions';
+				currentPage = pages[4];
 			}}
 		>
 			Payments and subscriptions
