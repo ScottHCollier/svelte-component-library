@@ -4,18 +4,18 @@
 	import Sidebar from '../../components/User/Sidebar.svelte';
 	import Container from '../../components/Atoms/Container.svelte';
 
-	import MyAccount_Home from '../../components/User/MyAccount_Home.svelte';
-	import MyAccount_Personal from '../../components/User/MyAccount_Personal.svelte';
-	import MyAccount_Data from '../../components/User/MyAccount_Data.svelte';
-	import MyAccount_Security from '../../components/User/MyAccount_Security.svelte';
-	import MyAccount_Payments from '../../components/User/MyAccount_Payments.svelte';
+	import MyAccountHome from '../../components/User/MyAccountHome.svelte';
+	import MyAccountPersonal from '../../components/User/MyAccountPersonal.svelte';
+	import MyAccountData from '../../components/User/MyAccountData.svelte';
+	import MyAccountSecurity from '../../components/User/MyAccountSecurity.svelte';
+	import MyAccountPayments from '../../components/User/MyAccountPayments.svelte';
 
 	let pages = [
-		{ component: MyAccount_Home },
-		{ component: MyAccount_Personal },
-		{ component: MyAccount_Data },
-		{ component: MyAccount_Security },
-		{ component: MyAccount_Payments }
+		{ component: MyAccountHome },
+		{ component: MyAccountPersonal },
+		{ component: MyAccountData },
+		{ component: MyAccountSecurity },
+		{ component: MyAccountPayments }
 	];
 	let { user, logout } = initAuth();
 	let currentPage = pages[0];

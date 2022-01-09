@@ -14,7 +14,7 @@
 	import TextSlider from '../components/Atoms/TextSlider.svelte';
 </script>
 
-<Container>
+<Container fullWidth>
 	<TextSlider interval={6000} {sliderMessages} />
 </Container>
 
