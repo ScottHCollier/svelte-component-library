@@ -14,6 +14,7 @@
 	let advertising = false;
 
 	onMount(async () => {
+		//Need to set cookies dynamically accoring to cookie
 		readCookie('_cc') ? (cookieSet = true) : (cookieSet = false);
 	});
 
@@ -26,11 +27,15 @@
 	};
 
 	const setAllCookies = () => {
+		functional = true;
+		analytics = true;
+		advertising = true;
+
 		let cookieConsent = {
-			necessary: true,
-			functional: true,
-			analytics: true,
-			advertising: true
+			necessary,
+			functional,
+			analytics,
+			advertising
 		};
 		setCookie('_cc', cookieConsent, 365);
 
@@ -72,7 +77,7 @@
 		></span
 	>
 	<ul class="cookie-consent-switches" style={cookieConsentSwitchesOpen ? '' : 'display: none;'}>
-		<li>Necessary<Switch bind:checked={necessary} /></li>
+		<li>Necessary<Switch bind:checked={necessary} fixed /></li>
 		<li>Functional<Switch bind:checked={functional} /></li>
 		<li>Analytics<Switch bind:checked={analytics} /></li>
 		<li>Advertising<Switch bind:checked={advertising} /></li>

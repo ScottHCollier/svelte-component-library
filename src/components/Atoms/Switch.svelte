@@ -1,11 +1,19 @@
 <script>
 	export let checked = false;
+	export let fixed = false;
 </script>
 
-<label class="switch">
-	<input type="checkbox" bind:checked />
-	<span class="slider" />
-</label>
+{#if fixed}
+	<div class="switch">
+		<div type="checkbox" />
+		<span class="fixed" />
+	</div>
+{:else}
+	<label class="switch">
+		<input type="checkbox" bind:checked />
+		<span class="slider" />
+	</label>
+{/if}
 
 <style lang="scss">
 	.switch {
@@ -22,7 +30,8 @@
 		height: 0;
 	}
 
-	.slider {
+	.slider,
+	.fixed {
 		position: absolute;
 		cursor: pointer;
 		top: 0;
@@ -35,7 +44,8 @@
 		border-radius: 34px;
 	}
 
-	.slider:before {
+	.slider:before,
+	.fixed:before {
 		position: absolute;
 		content: '';
 		height: 20px;
@@ -48,11 +58,19 @@
 		border-radius: 50%;
 	}
 
-	input:checked + .slider {
+	.fixed {
 		background-color: #29ce3f;
+		box-shadow: 0 0 1px #29ce3f;
+	}
+
+	.fixed:before {
+		-webkit-transform: translateX(20px);
+		-ms-transform: translateX(20px);
+		transform: translateX(20px);
 	}
 
 	input:checked + .slider {
+		background-color: #29ce3f;
 		box-shadow: 0 0 1px #29ce3f;
 	}
 
