@@ -88,6 +88,9 @@
 </div>
 
 <style lang="scss">
+	$cookie-background: black;
+	$cookie-foreground: white;
+
 	.cookie-consent-popup {
 		height: 80px;
 		width: 80px;
@@ -101,7 +104,7 @@
 			height: 0;
 			border-style: solid;
 			border-width: 80px 0 0 80px;
-			border-color: transparent transparent transparent rgba(0, 0, 0, 1);
+			border-color: transparent transparent transparent $cookie-background;
 
 			.cookie-icon {
 				position: absolute;
@@ -118,15 +121,15 @@
 	.cookie-consent-options {
 		width: 100%;
 		padding: 10px;
-		background-color: black;
+		background-color: $cookie-background;
 		position: fixed;
 		bottom: 0;
-		color: white;
+		color: $cookie-foreground;
 		@include flex-box;
 		flex-direction: column;
 
 		a {
-			color: white;
+			color: $cookie-foreground;
 		}
 	}
 
