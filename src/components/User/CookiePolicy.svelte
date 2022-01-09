@@ -2,7 +2,7 @@
 	import Cookie from 'svelte-material-icons/Cookie.svelte';
 	import Button from '../Atoms/Button.svelte';
 	import { onMount } from 'svelte';
-	import { readCookie, setCookie } from '$lib/cookies';
+	import { readCookie, readObjectCookie, setCookie } from '$lib/cookies';
 	import Switch from '../Atoms/Switch.svelte';
 
 	let cookieConsentOpen = false;
@@ -15,7 +15,15 @@
 
 	onMount(async () => {
 		//Need to set cookies dynamically accoring to cookie
-		readCookie('_cc') ? (cookieSet = true) : (cookieSet = false);
+		let cookieConsent = await readObjectCookie('_cc');
+		if (cookieConsent !== null) {
+			necessary = cookieConsent['necessary'];
+			functional = cookieConsent['functional'];
+			analytics = cookieConsent['analytics'];
+			advertising = cookieConsent['advertising'];
+
+			cookieSet = true;
+		}
 	});
 
 	const handleClick = () => {
