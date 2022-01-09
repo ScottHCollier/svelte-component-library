@@ -1,5 +1,5 @@
 <script>
-	import { initAuth } from '$lib/firebaseAuth';
+	import { initAuth } from '$lib/firebase';
 	let { user, logout } = initAuth();
 
 	let user_value;
@@ -9,17 +9,20 @@
 	});
 
 	export let fullWidth = false;
+	let scrollTop;
 </script>
+
+<svelte:window bind:scrollY={scrollTop} />
 
 <div class="nav-admin {!fullWidth ? 'full-width' : null}">
 	{#if user_value !== null}
 		<div class="logout" on:click={logout}>Log out</div>
-		<a class="my-account" href="/myaccount">My Account</a>
+		<a class="my-account" href="/my-account">My Account</a>
 	{:else}
 		<a href="/signin">Sign In / Register</a>
 	{/if}
 </div>
-<nav class="nav {!fullWidth ? 'full-width' : null}">
+<nav class="nav {!fullWidth ? 'full-width' : null} {scrollTop > 80 ? 'scrolled' : ''}">
 	<div class="left-column"><a href="/">SC</a></div>
 	<div class="centre-column">
 		<ul class="nav-links">
@@ -76,6 +79,11 @@
 		z-index: 1;
 		padding: 5px $header-full-width-padding;
 		color: $black;
+
+		&.scrolled {
+			box-shadow: 0 3px 3px 0 #00000022;
+			transition: box-shadow 300ms linear;
+		}
 
 		&.full-width {
 			padding: 5px $container-margin-width;

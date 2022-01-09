@@ -5,7 +5,7 @@
 	import InputPassword from '../../components/Atoms/InputPassword.svelte';
 	import Error from '../../components/Atoms/Error.svelte';
 	import Button from '../../components/Atoms/Button.svelte';
-	import { initAuth } from '$lib/firebaseAuth';
+	import { initAuth } from '$lib/firebase';
 	import { goto } from '$app/navigation';
 
 	let form = {
