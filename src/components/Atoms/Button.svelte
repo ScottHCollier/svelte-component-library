@@ -34,6 +34,7 @@
 		margin: 20px 0;
 		font-weight: $font-medium;
 		transition: all 300ms linear;
+		@include flex-box;
 
 		&.google-sign-in {
 			background-color: #4285f4;

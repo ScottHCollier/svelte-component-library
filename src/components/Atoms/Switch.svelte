@@ -20,7 +20,7 @@
 		position: relative;
 		display: inline-block;
 		width: 44px;
-		height: 24px;
+		height: 18px;
 		margin: 3px 0;
 	}
 
@@ -48,8 +48,8 @@
 	.fixed:before {
 		position: absolute;
 		content: '';
-		height: 20px;
-		width: 20px;
+		height: 14px;
+		width: 14px;
 		left: 2px;
 		bottom: 2px;
 		background-color: white;
@@ -64,9 +64,9 @@
 	}
 
 	.fixed:before {
-		-webkit-transform: translateX(20px);
-		-ms-transform: translateX(20px);
-		transform: translateX(20px);
+		-webkit-transform: translateX(26px);
+		-ms-transform: translateX(26px);
+		transform: translateX(26px);
 	}
 
 	input:checked + .slider {
@@ -75,8 +75,8 @@
 	}
 
 	input:checked + .slider:before {
-		-webkit-transform: translateX(20px);
-		-ms-transform: translateX(20px);
-		transform: translateX(20px);
+		-webkit-transform: translateX(26px);
+		-ms-transform: translateX(26px);
+		transform: translateX(26px);
 	}
 </style>

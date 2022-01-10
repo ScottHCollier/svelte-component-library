@@ -10,6 +10,7 @@
 	import ColumnCard from '../components/Atoms/ColumnCard.svelte';
 	import TextSlider from '../components/Atoms/TextSlider.svelte';
 	import Tabs from '../components/Content/Tabs.svelte';
+	import Accordion from '../components/Content/Accordion.svelte';
 
 	import { backgroundImages } from '../constants/images';
 	import { sliderMessages } from '../constants/messages';
@@ -78,6 +79,10 @@
 
 <ImageCarouselFullWidth {backgroundImages} interval={5454} blocker={0.5} height="700px" />
 
+<Container margin>
+	<Accordion />
+</Container>
+
 <Container>
 	<TwoColumnTest
 		reverse
@@ -99,7 +104,7 @@
 	/>
 </Container>
 
-<Container>
+<Container margin>
 	<ImageFader {backgroundImages} interval={4000} height="500px" blocker={0.2} />
 </Container>
 
@@ -115,7 +120,7 @@
 </Container>
 
 <Container margin>
-	<Tabs colour="fourth" />
+	<Tabs colour="secondary" />
 </Container>
 
 <Container>
