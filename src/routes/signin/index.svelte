@@ -68,7 +68,7 @@
 					<Error fieldName="password" errorKey="minLength" />
 				</div>
 				<div class="buttons">
-					<Button type="submit" text="Sign In" />
+					<Button colour="primary" type="submit" text="Sign In" />
 					<Button
 						type="button"
 						text="Sign in with Google"
@@ -96,7 +96,7 @@
 					<Error fieldName="password" errorKey="required" message="Password is required" />
 					<Error fieldName="password" errorKey="minLength" />
 				</div>
-				<Button type="submit" text="Sign Up" />
+				<Button colour="primary" type="submit" text="Sign Up" />
 			</Form>
 		</div>
 	</div>

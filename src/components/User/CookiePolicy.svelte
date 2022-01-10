@@ -2,7 +2,7 @@
 	import Cookie from 'svelte-material-icons/Cookie.svelte';
 	import Button from '../Atoms/Button.svelte';
 	import { onMount } from 'svelte';
-	import { readCookie, readObjectCookie, setCookie } from '$lib/cookies';
+	import { readObjectCookie, setCookie } from '$lib/cookies';
 	import Switch from '../Atoms/Switch.svelte';
 
 	let cookieConsentOpen = false;
@@ -11,18 +11,21 @@
 	let necessary = true;
 	let functional = false;
 	let analytics = false;
+	let personalisation = false;
 	let advertising = false;
 
 	onMount(async () => {
-		//Need to set cookies dynamically accoring to cookie
 		let cookieConsent = await readObjectCookie('_cc');
 		if (cookieConsent !== null) {
 			necessary = cookieConsent['necessary'];
 			functional = cookieConsent['functional'];
+			personalisation = cookieConsent['personalisation'];
 			analytics = cookieConsent['analytics'];
 			advertising = cookieConsent['advertising'];
 
 			cookieSet = true;
+		} else {
+			cookieConsentOpen = true;
 		}
 	});
 
@@ -37,12 +40,14 @@
 	const setAllCookies = () => {
 		functional = true;
 		analytics = true;
+		personalisation = true;
 		advertising = true;
 
 		let cookieConsent = {
 			necessary,
 			functional,
 			analytics,
+			personalisation,
 			advertising
 		};
 		setCookie('_cc', cookieConsent, 365);
@@ -55,6 +60,7 @@
 		let cookieConsent = {
 			necessary,
 			functional,
+			personalisation,
 			analytics,
 			advertising
 		};
@@ -74,7 +80,7 @@
 >
 	<div class="cookie-container-closed">
 		<div class="cookie-icon" on:click={handleClick}>
-			<Cookie color="white" height="2em" width="2em" />
+			<Cookie color="#301533" height="2em" width="2em" />
 		</div>
 	</div>
 </div>
@@ -88,21 +94,22 @@
 		<li>Necessary<Switch bind:checked={necessary} fixed /></li>
 		<li>Functional<Switch bind:checked={functional} /></li>
 		<li>Analytics<Switch bind:checked={analytics} /></li>
+		<li>Personalisation<Switch bind:checked={personalisation} /></li>
 		<li>Advertising<Switch bind:checked={advertising} /></li>
 	</ul>
 	<div class="cookie-consent-buttons">
 		{#if !cookieConsentSwitchesOpen}
-			<Button type="button" text="MANAGE COOKIES" onClick={openSwitches} />
+			<Button colour="fourth" type="button" text="MANAGE COOKIES" onClick={openSwitches} />
 		{:else}
-			<Button type="button" text="ACCEPT & CLOSE" onClick={setCookieConsent} />
+			<Button colour="fourth" type="button" text="ACCEPT & CLOSE" onClick={setCookieConsent} />
 		{/if}
-		<Button type="button" text="ACCEPT ALL COOKIES" onClick={setAllCookies} />
+		<Button colour="fourth" type="button" text="ACCEPT ALL COOKIES" onClick={setAllCookies} />
 	</div>
 </div>
 
 <style lang="scss">
-	$cookie-background: black;
-	$cookie-foreground: white;
+	$cookie-background: $fourth-light;
+	$cookie-foreground: $fourth-dark;
 
 	.cookie-consent-popup {
 		height: 80px;

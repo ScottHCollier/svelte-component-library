@@ -2,7 +2,7 @@
 	import ImageCard from '../Atoms/ImageCard.svelte';
 	import TextBox from '../Atoms/TextBox.svelte';
 
-	export let reverse;
+	export let reverse = false;
 	export let imageSrc;
 	export let imageAlt;
 	export let textTitle;

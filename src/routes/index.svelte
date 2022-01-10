@@ -8,10 +8,11 @@
 	import ImageCarousel from '../components/Content/ImageCarousel.svelte';
 	import TwoColumn from '../components/Content/TwoColumn.svelte';
 	import ColumnCard from '../components/Atoms/ColumnCard.svelte';
+	import TextSlider from '../components/Atoms/TextSlider.svelte';
+	import Tabs from '../components/Content/Tabs.svelte';
 
 	import { backgroundImages } from '../constants/images';
 	import { sliderMessages } from '../constants/messages';
-	import TextSlider from '../components/Atoms/TextSlider.svelte';
 </script>
 
 <Container fullWidth>
@@ -111,6 +112,10 @@
 		href="/"
 		colour="secondary"
 	/>
+</Container>
+
+<Container margin>
+	<Tabs colour="fourth" />
 </Container>
 
 <Container>

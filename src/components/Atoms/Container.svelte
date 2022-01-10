@@ -1,8 +1,9 @@
 <script>
 	export let fullWidth = false;
+	export let margin = false;
 </script>
 
-<div class={fullWidth ? 'container full-width' : 'container'}>
+<div class="container {fullWidth ? 'full-width' : ''} {margin ? 'margin' : ''}">
 	<slot />
 </div>
 
@@ -14,6 +15,11 @@
 		&.full-width {
 			margin-left: -$container-margin-width;
 			margin-right: -$container-margin-width;
+		}
+
+		&.margin {
+			margin-top: 30px;
+			margin-bottom: 30px;
 		}
 	}
 </style>

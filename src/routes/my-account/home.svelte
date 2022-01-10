@@ -28,23 +28,11 @@
 		<Sidebar bind:currentPage bind:pages />
 		<div class="my-account-container">
 			<svelte:component this={currentPage.component} />
-
-			<!-- {#if currentPage === 'Home'}
-				<h1>Home Page</h1>
-			{:else if currentPage === 'Personal info'}
-				<h1>Personal info</h1>
-			{:else if currentPage === 'Data and privacy'}
-				<h1>Data and privacy</h1>
-			{:else if currentPage === 'Security'}
-				<h1>Security</h1>
-			{:else if currentPage === 'Payments and subscriptions'}
-				<h1>Payments and subscriptions</h1>
-			{/if} -->
 		</div>
 
 		<div class="logout">
 			<h2>{$user.email}</h2>
-			<Button type="button" onClick={logout} text="Log out" />
+			<Button type="button" onClick={logout} text="Log out" colour="black" />
 		</div>
 	{:else}
 		<h2><a href="/signin">Sign in</a> to view account</h2>

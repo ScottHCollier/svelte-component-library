@@ -1,4 +1,6 @@
 <script>
+	import Button from '../Atoms/Button.svelte';
+
 	export let src;
 	export let headline;
 	export let subtitle;
@@ -13,7 +15,7 @@
 	<div class="hero-banner-text {colour}">
 		<h2>{headline}</h2>
 		<span>{subtitle}</span>
-		<a {href} class="button {colour}">{buttonText}</a>
+		<Button text={buttonText} {colour} {href} />
 	</div>
 </div>
 
@@ -80,57 +82,6 @@
 				font-size: $font-headline-medium;
 				font-weight: $font-light;
 				margin: 10px 0;
-			}
-
-			.button {
-				background-color: transparent;
-
-				padding: 6px 10px;
-				border-radius: 5px;
-				font-size: $font-button;
-				margin: 20px 0;
-				font-weight: $font-medium;
-				transition: all 300ms linear;
-
-				&.primary {
-					color: $primary-dark;
-					border: 2px solid $primary-dark;
-
-					&:hover {
-						background-color: $primary-dark;
-					}
-				}
-
-				&.secondary {
-					color: $secondary-dark;
-					border: 2px solid $secondary-dark;
-
-					&:hover {
-						background-color: $secondary-dark;
-					}
-				}
-
-				&.tertiary {
-					color: $tertiary-dark;
-					border: 2px solid $tertiary-dark;
-
-					&:hover {
-						background-color: $tertiary-dark;
-					}
-				}
-				&.fourth {
-					color: $fourth-dark;
-					border: 2px solid $fourth-dark;
-
-					&:hover {
-						background-color: $fourth-dark;
-					}
-				}
-
-				&:hover {
-					color: $white;
-					cursor: pointer;
-				}
 			}
 		}
 	}
