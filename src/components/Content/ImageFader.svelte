@@ -6,6 +6,7 @@
 	export let interval;
 	export let height;
 	export let blocker = 0;
+	export let position = 'center';
 
 	let backgroundIndex = 0;
 	setInterval(() => {
@@ -16,7 +17,12 @@
 <div class="fader-container">
 	<div class="image-fader" style="height: {height}">
 		{#each [backgroundImages[backgroundIndex]] as image (backgroundIndex)}
-			<div class="image" transition:fade style="background-image: url({image.path});" alt="test" />
+			<div
+				class="image"
+				transition:fade
+				style="background-image: url({image.path}); background-position: {position};"
+				alt="test"
+			/>
 		{/each}
 	</div>
 	<ImageBlocker {blocker} />
@@ -32,7 +38,6 @@
 			.image {
 				height: 100%;
 				width: 100%;
-				background-position: center;
 				background-repeat: no-repeat;
 				background-size: cover;
 				position: absolute;

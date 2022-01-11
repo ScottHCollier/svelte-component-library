@@ -12,9 +12,19 @@
 	import Tabs from '../components/Content/Tabs.svelte';
 	import Accordion from '../components/Content/Accordion.svelte';
 
-	import { backgroundImages } from '../constants/images';
+	import { backgroundImages, images } from '../constants/images';
 	import { sliderMessages } from '../constants/messages';
 </script>
+
+<Container fullWidth>
+	<ImageFader
+		backgroundImages={images}
+		interval={5000}
+		height="700px"
+		blocker={0}
+		position="bottom"
+	/>
+</Container>
 
 <Container fullWidth>
 	<TextSlider interval={6000} {sliderMessages} />
@@ -77,7 +87,7 @@
 	</TwoColumn>
 </Container>
 
-<ImageCarouselFullWidth {backgroundImages} interval={5454} blocker={0.5} height="700px" />
+<ImageCarouselFullWidth {backgroundImages} interval={5454} blocker={0.5} height="400px" />
 
 <Container margin>
 	<Accordion />
@@ -105,7 +115,7 @@
 </Container>
 
 <Container margin>
-	<ImageFader {backgroundImages} interval={4000} height="500px" blocker={0.2} />
+	<ImageFader {backgroundImages} interval={4000} height="300px" blocker={0.2} />
 </Container>
 
 <Container>
