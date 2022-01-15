@@ -1,9 +1,14 @@
 <script>
 	export let fullWidth = false;
 	export let margin = false;
+	export let backgroundColour = null;
 </script>
 
-<div class="container {fullWidth ? 'full-width' : ''} {margin ? 'margin' : ''}">
+<div
+	class="container {fullWidth ? 'full-width' : ''} {margin ? 'margin' : ''} {backgroundColour
+		? `${backgroundColour}`
+		: ''}"
+>
 	<slot />
 </div>
 
@@ -20,6 +25,21 @@
 		&.margin {
 			margin-top: 30px;
 			margin-bottom: 30px;
+		}
+
+		&.primary {
+			background-color: $primary;
+		}
+
+		&.secondary {
+			background-color: $secondary;
+		}
+
+		&.tertiary {
+			background-color: $tertiary;
+		}
+		&.fourth {
+			background-color: $accent;
 		}
 	}
 </style>

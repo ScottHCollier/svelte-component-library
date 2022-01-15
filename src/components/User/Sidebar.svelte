@@ -69,7 +69,7 @@
 <style lang="scss">
 	.my-account-links {
 		position: fixed;
-		padding: $header-full-width-padding;
+		padding: $full-width-padding;
 
 		li {
 			@include flex-box;

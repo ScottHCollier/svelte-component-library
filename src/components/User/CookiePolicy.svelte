@@ -53,6 +53,7 @@
 		setCookie('_cc', cookieConsent, 365);
 
 		cookieConsentOpen = !cookieConsentOpen;
+		cookieConsentSwitchesOpen = !cookieConsentSwitchesOpen;
 		cookieSet = true;
 	};
 
@@ -68,6 +69,7 @@
 		setCookie('_cc', cookieConsent, 365);
 
 		cookieConsentOpen = !cookieConsentOpen;
+		cookieConsentSwitchesOpen = !cookieConsentSwitchesOpen;
 		cookieSet = true;
 	};
 </script>
@@ -80,7 +82,7 @@
 >
 	<div class="cookie-container-closed">
 		<div class="cookie-icon" on:click={handleClick}>
-			<Cookie color="#301533" height="2em" width="2em" />
+			<Cookie color="#fff" height="2em" width="2em" />
 		</div>
 	</div>
 </div>
@@ -99,17 +101,27 @@
 	</ul>
 	<div class="cookie-consent-buttons">
 		{#if !cookieConsentSwitchesOpen}
-			<Button colour="fourth" type="button" text="MANAGE COOKIES" onClick={openSwitches} />
+			<Button buttonColour="secondary" type="button" text="MANAGE COOKIES" onClick={openSwitches} />
 		{:else}
-			<Button colour="fourth" type="button" text="ACCEPT & CLOSE" onClick={setCookieConsent} />
+			<Button
+				buttonColour="secondary"
+				type="button"
+				text="ACCEPT & CLOSE"
+				onClick={setCookieConsent}
+			/>
 		{/if}
-		<Button colour="fourth" type="button" text="ACCEPT ALL COOKIES" onClick={setAllCookies} />
+		<Button
+			buttonColour="secondary"
+			type="button"
+			text="ACCEPT ALL COOKIES"
+			onClick={setAllCookies}
+		/>
 	</div>
 </div>
 
 <style lang="scss">
-	$cookie-background: $fourth-light;
-	$cookie-foreground: $fourth-dark;
+	$cookie-background: $secondary;
+	$cookie-foreground: $secondary-text;
 
 	.cookie-consent-popup {
 		height: 80px;
@@ -151,6 +163,12 @@
 		a {
 			color: $cookie-foreground;
 		}
+	}
+
+	.cookie-consent-buttons {
+		@include flex-box;
+		justify-content: space-between;
+		width: 500px;
 	}
 
 	.cookie-consent-switches {

@@ -32,7 +32,7 @@
 
 		<div class="logout">
 			<h2>{$user.email}</h2>
-			<Button type="button" onClick={logout} text="Log out" colour="black" />
+			<Button type="button" onClick={logout} text="Log out" buttonColour="primary" />
 		</div>
 	{:else}
 		<h2><a href="/signin">Sign in</a> to view account</h2>

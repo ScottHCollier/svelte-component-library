@@ -1,38 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@200;400;900&display=swap');
+@import url('https://use.typekit.net/wjs5cfa.css');
 
 // Colours
 $primary: #fff;
-$secondary: #fff;
-$text-colour: #000;
-$secondary-text-colour: #000;
+$primary-text: #000;
+$secondary: #000;
+$secondary-text: #fff;
+$tertiary: #e9ecef;
+$tertiary-text: #000;
+$accent: #eb821c;
+$accent-text: #fff;
+$dark-grey: #444;
+
+$primary-text: #000;
+$secondary-text: #fff;
+
 $white: #fff;
 $black: #000;
 
-$primary-light: #dfebc0;
-$primary-dark: #485861;
+$primary-button: #fff;
+$primary-button-hover: #000;
 
-$secondary-light: #7ed2f3;
-$secondary-dark: #192c50;
+$secondary-button: #000;
+$secondary-button-hover: #fff;
 
-$tertiary-light: #f7c273;
-$tertiary-dark: #3f301c;
+$tertiary-button: #000;
+$tertiary-button-hover: #444;
 
-$fourth-light: #f7c3f7;
-$fourth-dark: #301533;
-
-// Fonts
-$font-light: 200;
-$font-medium: 400;
-$font-bold: 900;
-
-$font-headline-large: 3.8rem;
-$font-headline-medium: 2.1rem;
-$font-headline-small: 1.3rem;
-$font-button: 1.2rem;
-
-$font-copy-large: 1.1rem;
-$font-copy-medium: 0.9rem;
-$font-copy-small: 0.7rem;
+$accent-button: #eb821c;
+$accent-button-hover: #fff;
 
 // Widths
 // Change both container margin width and margin width calc to keep carousel within container width
@@ -40,4 +35,4 @@ $container-margin-width: 13.5%;
 $container-margin-width-calc: 13.5;
 $image-carousel-vw: calc(100 - (2 * $container-margin-width-calc)) + vw;
 
-$header-full-width-padding: 20px;
+$full-width-padding: 20px;

@@ -4,21 +4,21 @@
 	export let type = null;
 	export let onClick = null;
 	export let href = null;
-	export let colour = null;
+	export let buttonColour = null;
 </script>
 
 {#if onClick}
 	<button
 		{type}
 		on:click|preventDefault={onClick}
-		class="{isGoogleSignIn ? 'google-sign-in' : ''} button {colour}"
+		class="{isGoogleSignIn ? 'google-sign-in' : ''} button {buttonColour}"
 	>
 		{text}
 	</button>
 {:else if href}
-	<a class="button {colour}" {href}>{text}</a>
+	<a class="button {buttonColour}" {href}>{text}</a>
 {:else}
-	<button {type} class="{isGoogleSignIn ? 'google-sign-in' : ''} button {colour}">
+	<button {type} class="{isGoogleSignIn ? 'google-sign-in' : ''} button {buttonColour}">
 		{text}
 	</button>
 {/if}
@@ -27,12 +27,10 @@
 	.button {
 		background-color: transparent;
 		padding: 6px 10px;
-		border-radius: 5px;
 		font-size: $font-button;
-		min-width: 165px;
-		width: auto;
+		width: 245px;
 		margin: 20px 0;
-		font-weight: $font-medium;
+		font-weight: $font-regular;
 		transition: all 300ms linear;
 		@include flex-box;
 
@@ -48,37 +46,43 @@
 		}
 
 		&.primary {
-			color: $primary-dark;
-			border: 2px solid $primary-dark;
+			color: $primary-button-hover;
+			border: 2px solid $primary-button-hover;
 
 			&:hover {
-				background-color: $primary-dark;
+				background-color: $primary-button-hover;
 			}
 		}
 
 		&.secondary {
-			color: $secondary-dark;
-			border: 2px solid $secondary-dark;
+			color: $secondary-button-hover;
+			border: 2px solid $secondary-button-hover;
 
 			&:hover {
-				background-color: $secondary-dark;
+				background-color: $secondary-button-hover;
+				color: $secondary-button;
 			}
 		}
 
 		&.tertiary {
-			color: $tertiary-dark;
-			border: 2px solid $tertiary-dark;
+			background-color: $tertiary;
+			color: $tertiary-button;
+			border: 2px solid $tertiary-button-hover;
 
 			&:hover {
-				background-color: $tertiary-dark;
+				background-color: $tertiary-button-hover;
+				color: $primary;
 			}
 		}
-		&.fourth {
-			color: $fourth-dark;
-			border: 2px solid $fourth-dark;
+
+		&.accent {
+			color: $accent-button-hover;
+			border: 2px solid $accent-button;
+			background-color: $accent-button;
 
 			&:hover {
-				background-color: $fourth-dark;
+				background-color: $accent-button-hover;
+				color: $accent-button;
 			}
 		}
 

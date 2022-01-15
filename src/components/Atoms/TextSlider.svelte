@@ -32,11 +32,15 @@
 		.nav-slider {
 			height: 30px;
 			@include flex-box;
-			font-size: $font-copy-small;
+			text-transform: uppercase;
+			background-color: $secondary;
 
 			.message {
 				text-align: center;
 				width: 100vw;
+				color: $secondary-text;
+				font-size: $font-copy-medium;
+				font-weight: $font-semibold;
 
 				&.transitioning {
 					opacity: 0;

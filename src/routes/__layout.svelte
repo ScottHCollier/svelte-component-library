@@ -6,7 +6,7 @@
 </script>
 
 <div class="app-container">
-	<Header fullWidth />
+	<Header />
 
 	<div class="body-container">
 		<slot />

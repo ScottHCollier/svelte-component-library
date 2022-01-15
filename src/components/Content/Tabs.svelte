@@ -1,18 +1,18 @@
 <script>
 	import TwoColumnTest from '../Content/TwoColumnTest.svelte';
 	export let currentTab = 0;
-	export let colour;
+	export let secondary = false;
 </script>
 
-<ul class="tabs {colour}">
-	<li class={colour}>
+<ul class="tabs {secondary ? 'secondary' : 'primary'}">
+	<li class={secondary ? 'secondary' : 'primary'}>
 		<span
-			class="{colour} {currentTab === 0 ? 'active' : ''}"
+			class="{secondary ? 'secondary' : 'primary'} {currentTab === 0 ? 'active' : ''}"
 			on:click={() => {
 				currentTab = 0;
 			}}>Book nerd</span
 		>
-		<div class="{colour} {currentTab === 0 ? 'active' : ''}">
+		<div class="{secondary ? 'secondary' : 'primary'} {currentTab === 0 ? 'active' : ''}">
 			<TwoColumnTest
 				reverse
 				textTitle="Nonsense from Jeff Goldblum"
@@ -22,16 +22,16 @@
 			/>
 		</div>
 	</li>
-	<li class={colour}>
+	<li class={secondary ? 'secondary' : 'primary'}>
 		<span
-			class="{colour} {currentTab === 1 ? 'active' : ''}"
+			class="{secondary ? 'secondary' : 'primary'} {currentTab === 1 ? 'active' : ''}"
 			on:click={() => {
 				currentTab = 1;
 			}}
 		>
 			Big Mac
 		</span>
-		<div class=" {colour} {currentTab === 1 ? 'active' : ''}">
+		<div class=" {secondary ? 'secondary' : 'primary'} {currentTab === 1 ? 'active' : ''}">
 			<TwoColumnTest
 				textTitle="Nonsense from Jeff Goldblum"
 				textCopy="Yeah, but John, if The Pirates of the Caribbean breaks down, the pirates don’t eat the tourists. Yes, Yes, without the oops! You really think you can fly that thing?"
@@ -40,16 +40,16 @@
 			/>
 		</div>
 	</li>
-	<li class={colour}>
+	<li class={secondary ? 'secondary' : 'primary'}>
 		<span
-			class="{colour} {currentTab === 2 ? 'active' : ''}"
+			class="{secondary ? 'secondary' : 'primary'} {currentTab === 2 ? 'active' : ''}"
 			on:click={() => {
 				currentTab = 2;
 			}}
 		>
 			Multi Platform
 		</span>
-		<div class="{colour} {currentTab === 2 ? 'active' : ''}">
+		<div class="{secondary ? 'secondary' : 'primary'} {currentTab === 2 ? 'active' : ''}">
 			<TwoColumnTest
 				reverse
 				textTitle="Jeffsum.com"
@@ -69,19 +69,19 @@
 		height: 500px;
 
 		&.primary {
-			color: $primary-dark;
+			color: $secondary;
 		}
 
 		&.secondary {
-			color: $secondary-dark;
+			color: $primary;
 		}
 
 		&.tertiary {
-			color: $tertiary-dark;
+			color: $tertiary;
 		}
 
-		&.fourth {
-			color: $fourth-dark;
+		&.accent {
+			color: $accent;
 		}
 
 		li {
@@ -89,19 +89,19 @@
 			border-bottom: 0;
 
 			&.primary {
-				border: 2px solid $primary-dark;
+				border: 2px solid $secondary;
 			}
 
 			&.secondary {
-				border: 2px solid $secondary-dark;
+				border: 2px solid $primary;
 			}
 
 			&.tertiary {
-				border: 2px solid $tertiary-dark;
+				border: 2px solid $tertiary;
 			}
 
-			&.fourth {
-				border: 2px solid $fourth-dark;
+			&.accent {
+				border: 2px solid $accent;
 			}
 
 			&:nth-of-type(2) {
@@ -115,38 +115,39 @@
 				text-align: center;
 
 				&.primary {
-					background-color: $primary-light;
-					color: $primary-dark;
+					background-color: $primary;
+					color: $secondary;
 
 					&.active {
-						background-color: $primary-dark;
+						background-color: $secondary;
 					}
 				}
 
 				&.secondary {
-					background-color: $secondary-light;
-					color: $secondary-dark;
+					background-color: $secondary;
+					color: $primary;
 
 					&.active {
-						background-color: $secondary-dark;
+						background-color: $tertiary;
+						color: $secondary;
 					}
 				}
 
 				&.tertiary {
-					background-color: $tertiary-light;
-					color: $tertiary-dark;
+					background-color: $tertiary;
+					color: $tertiary;
 
 					&.active {
-						background-color: $tertiary-dark;
+						background-color: $tertiary;
 					}
 				}
 
-				&.fourth {
-					background-color: $fourth-light;
-					color: $fourth-dark;
+				&.accent {
+					background-color: $accent;
+					color: $accent;
 
 					&.active {
-						background-color: $fourth-dark;
+						background-color: $accent;
 					}
 				}
 
@@ -167,19 +168,21 @@
 				height: calc(100% - 40px);
 
 				&.primary {
-					border: 2px solid $primary-dark;
+					border: 2px solid $secondary;
+					background-color: $primary;
 				}
 
 				&.secondary {
-					border: 2px solid $secondary-dark;
+					border: 2px solid $primary;
+					background-color: $secondary;
 				}
 
 				&.tertiary {
-					border: 2px solid $tertiary-dark;
+					border: 2px solid $tertiary;
 				}
 
-				&.fourth {
-					border: 2px solid $fourth-dark;
+				&.accent {
+					border: 2px solid $accent;
 				}
 
 				&.active {

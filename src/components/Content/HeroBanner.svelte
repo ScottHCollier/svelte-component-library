@@ -7,6 +7,7 @@
 	export let buttonText;
 	export let href;
 	export let colour;
+	export let buttonColour;
 	export let reverse = false;
 </script>
 
@@ -14,8 +15,8 @@
 	<img {src} alt="person" />
 	<div class="hero-banner-text {colour}">
 		<h2>{headline}</h2>
-		<span>{subtitle}</span>
-		<Button text={buttonText} {colour} {href} />
+		<h4>{subtitle}</h4>
+		<Button text={buttonText} {buttonColour} {href} />
 	</div>
 </div>
 
@@ -31,19 +32,19 @@
 		}
 
 		&.primary {
-			background-color: $primary-light;
+			background-color: $primary;
 		}
 
 		&.secondary {
-			background-color: $secondary-light;
+			background-color: $secondary;
 		}
 
 		&.tertiary {
-			background-color: $tertiary-light;
+			background-color: $tertiary;
 		}
 
-		&.fourth {
-			background-color: $fourth-light;
+		&.accent {
+			background-color: $accent;
 		}
 
 		img {
@@ -57,29 +58,27 @@
 			flex-direction: column;
 
 			&.primary {
-				color: $primary-dark;
+				color: $primary-text;
 			}
 
 			&.secondary {
-				color: $secondary-dark;
+				color: $secondary-text;
 			}
 
 			&.tertiary {
-				color: $tertiary-dark;
+				color: $tertiary-text;
 			}
 
-			&.fourth {
-				color: $fourth-dark;
+			&.accent {
+				color: $accent-text;
 			}
 
 			h2 {
-				font-size: $font-headline-large;
 				padding: 0 100px;
 				font-weight: $font-bold;
 			}
 
-			span {
-				font-size: $font-headline-medium;
+			h4 {
 				font-weight: $font-light;
 				margin: 10px 0;
 			}

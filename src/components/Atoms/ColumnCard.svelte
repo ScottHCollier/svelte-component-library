@@ -1,4 +1,6 @@
 <script>
+	import Button from '../Atoms/Button.svelte';
+
 	export let src;
 	export let alt;
 	export let headline;
@@ -6,6 +8,7 @@
 	export let buttonText;
 	export let href;
 	export let colour;
+	export let buttonColour;
 	export let first = false;
 	export let reverse = false;
 </script>
@@ -14,7 +17,7 @@
 	<div class="hero-banner-text {colour}">
 		<span>{subtitle}</span>
 		<h2>{headline}</h2>
-		<a {href} class="button {colour}">{buttonText}</a>
+		<Button {href} {buttonColour} text={buttonText} />
 	</div>
 	<img {src} {alt} />
 </div>
@@ -40,19 +43,19 @@
 		}
 
 		&.primary {
-			background-color: $primary-light;
+			background-color: $primary;
 		}
 
 		&.secondary {
-			background-color: $secondary-light;
+			background-color: $secondary;
 		}
 
 		&.tertiary {
-			background-color: $tertiary-light;
+			background-color: $tertiary;
 		}
 
-		&.fourth {
-			background-color: $fourth-light;
+		&.accent {
+			background-color: $accent;
 		}
 
 		img {
@@ -66,19 +69,19 @@
 			flex-direction: column;
 
 			&.primary {
-				color: $primary-dark;
+				color: $secondary;
 			}
 
 			&.secondary {
-				color: $secondary-dark;
+				color: $primary;
 			}
 
 			&.tertiary {
-				color: $tertiary-dark;
+				color: $secondary;
 			}
 
-			&.fourth {
-				color: $fourth-dark;
+			&.accent {
+				color: $primary;
 			}
 
 			h2 {
@@ -90,7 +93,7 @@
 
 			span {
 				font-size: $font-copy-medium;
-				font-weight: $font-medium;
+				font-weight: $font-regular;
 			}
 
 			.button {
@@ -100,41 +103,41 @@
 				border-radius: 5px;
 				font-size: $font-button;
 				margin: 20px 0;
-				font-weight: $font-medium;
+				font-weight: $font-regular;
 				transition: all 300ms linear;
 
 				&.primary {
-					color: $primary-dark;
-					border: 2px solid $primary-dark;
+					color: $primary;
+					border: 2px solid $primary;
 
 					&:hover {
-						background-color: $primary-dark;
+						background-color: $primary;
 					}
 				}
 
 				&.secondary {
-					color: $secondary-dark;
-					border: 2px solid $secondary-dark;
+					color: $secondary;
+					border: 2px solid $secondary;
 
 					&:hover {
-						background-color: $secondary-dark;
+						background-color: $secondary;
 					}
 				}
 
 				&.tertiary {
-					color: $tertiary-dark;
-					border: 2px solid $tertiary-dark;
+					color: $tertiary;
+					border: 2px solid $tertiary;
 
 					&:hover {
-						background-color: $tertiary-dark;
+						background-color: $tertiary;
 					}
 				}
-				&.fourth {
-					color: $fourth-dark;
-					border: 2px solid $fourth-dark;
+				&.accent {
+					color: $accent;
+					border: 2px solid $accent;
 
 					&:hover {
-						background-color: $fourth-dark;
+						background-color: $accent;
 					}
 				}
 

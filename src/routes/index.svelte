@@ -13,22 +13,7 @@
 	import Accordion from '../components/Content/Accordion.svelte';
 
 	import { backgroundImages, images } from '../constants/images';
-	import { sliderMessages } from '../constants/messages';
 </script>
-
-<Container fullWidth>
-	<ImageFader
-		backgroundImages={images}
-		interval={5000}
-		height="700px"
-		blocker={0}
-		position="bottom"
-	/>
-</Container>
-
-<Container fullWidth>
-	<TextSlider interval={6000} {sliderMessages} />
-</Container>
 
 <Container fullWidth>
 	<HeroBanner
@@ -37,7 +22,8 @@
 		subtitle="Clever little subtitle."
 		buttonText="Get in touch"
 		href="/"
-		colour="primary"
+		colour="tertiary"
+		buttonColour="primary"
 	/>
 </Container>
 
@@ -57,7 +43,8 @@
 		subtitle="Clever little subtitle."
 		buttonText="Get in touch"
 		href="/"
-		colour="tertiary"
+		colour="secondary"
+		buttonColour="secondary"
 		reverse
 	/>
 </Container>
@@ -71,27 +58,25 @@
 			buttonText="Learn more"
 			href="/"
 			alt="macbook"
-			colour="primary"
+			colour="tertiary"
+			buttonColour="tertiary"
 			first
 		/>
 		<ColumnCard
 			src="assets/products/mac.png"
 			headline="Be a sheep, expensively."
-			subtitle="Clever little subtitle."
+			subtitle="Big mac."
 			buttonText="Learn more"
 			href="/"
 			alt="mac"
-			colour="fourth"
+			colour="accent"
+			buttonColour="secondary"
 			reverse
 		/>
 	</TwoColumn>
 </Container>
 
 <ImageCarouselFullWidth {backgroundImages} interval={5454} blocker={0.5} height="400px" />
-
-<Container margin>
-	<Accordion />
-</Container>
 
 <Container>
 	<TwoColumnTest
@@ -110,7 +95,8 @@
 		subtitle="Clever little subtitle."
 		buttonText="Get in touch"
 		href="/"
-		colour="fourth"
+		colour="accent"
+		buttonColour="secondary"
 	/>
 </Container>
 
@@ -126,11 +112,12 @@
 		buttonText="Get in touch"
 		href="/"
 		colour="secondary"
+		buttonColour="accent"
 	/>
 </Container>
 
 <Container margin>
-	<Tabs colour="secondary" />
+	<Tabs />
 </Container>
 
 <Container>

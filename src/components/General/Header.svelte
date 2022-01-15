@@ -1,5 +1,8 @@
 <script>
 	import { initAuth } from '$lib/firebase';
+	import TextSlider from '../Atoms/TextSlider.svelte';
+	import { sliderMessages } from '../../constants/messages';
+
 	let { user, logout } = initAuth();
 
 	let user_value;
@@ -14,14 +17,8 @@
 
 <svelte:window bind:scrollY={scrollTop} />
 
-<div class="nav-admin {!fullWidth ? 'full-width' : null}">
-	{#if user_value !== null}
-		<div class="logout" on:click={logout}>Log out</div>
-		<a class="my-account" href="/my-account">My Account</a>
-	{:else}
-		<a href="/signin">Sign In / Register</a>
-	{/if}
-</div>
+<TextSlider interval={6000} {sliderMessages} />
+
 <nav class="nav {!fullWidth ? 'full-width' : null} {scrollTop > 80 ? 'scrolled' : ''}">
 	<div class="left-column"><a href="/">SC</a></div>
 	<div class="centre-column">
@@ -43,32 +40,17 @@
 			</li>
 		</ul>
 	</div>
-	<div class="right-column">&nbsp;</div>
+	<div class="right-column">
+		{#if user_value !== null}
+			<div class="logout" on:click={logout}>Log out</div>
+			<a class="my-account" href="/my-account">My Account</a>
+		{:else}
+			<a href="/signin">Sign In / Register</a>
+		{/if}
+	</div>
 </nav>
 
 <style lang="scss">
-	.nav-admin {
-		height: 30px;
-		@include flex-box;
-		justify-content: flex-end;
-		padding: 0 $header-full-width-padding;
-		font-size: $font-copy-small;
-
-		&.full-width {
-			padding: 0 $container-margin-width;
-		}
-
-		.logout {
-			&:hover {
-				cursor: pointer;
-			}
-		}
-
-		.my-account {
-			margin-left: 20px;
-		}
-	}
-
 	.nav {
 		background-color: $primary;
 		display: flex;
@@ -77,8 +59,9 @@
 		position: sticky;
 		top: 0px;
 		z-index: 1;
-		padding: 5px $header-full-width-padding;
+		padding: 5px $full-width-padding;
 		color: $black;
+		height: 80px;
 
 		&.scrolled {
 			box-shadow: 0 3px 3px 0 #00000022;
@@ -91,20 +74,31 @@
 
 		.left-column,
 		.right-column {
-			width: 10%;
+			width: 15%;
 			display: flex;
 			align-items: center;
 		}
 
 		.left-column {
 			justify-content: flex-start;
-			font-size: $font-headline-medium;
+
 			font-weight: $font-bold;
 		}
 
 		.right-column {
-			display: flex;
+			@include flex-box;
 			justify-content: flex-end;
+			font-size: $font-copy-small;
+
+			.logout {
+				&:hover {
+					cursor: pointer;
+				}
+			}
+
+			.my-account {
+				margin-left: 20px;
+			}
 		}
 
 		.centre-column {
@@ -114,7 +108,7 @@
 				.nav-link {
 					padding: 0 10px;
 					text-align: center;
-					font-size: $font-copy-medium;
+					font-size: $font-copy-large;
 				}
 			}
 		}
