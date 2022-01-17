@@ -16,7 +16,9 @@
 		{text}
 	</button>
 {:else if href}
-	<a class="button {buttonColour}" {href}>{text}</a>
+	<a {href}>
+		<button class="button {buttonColour}">{text}</button>
+	</a>
 {:else}
 	<button {type} class="{isGoogleSignIn ? 'google-sign-in' : ''} button {buttonColour}">
 		{text}
@@ -25,79 +27,85 @@
 
 <style lang="scss">
 	.button {
-		background-color: transparent;
-		padding: 6px 10px;
+		padding: 10px;
 		font-size: $font-button;
 		width: 245px;
 		margin: 20px 0;
-		font-weight: $font-regular;
-		transition: all 300ms linear;
-		@include flex-box;
-
-		&.google-sign-in {
-			background-color: #4285f4;
-			border: 2px solid #4285f4;
-			color: white;
-
-			&:hover {
-				background-color: #357ae8;
-				border: 2px solid #357ae8;
-			}
-		}
-
-		&.primary {
-			color: $primary-button-hover;
-			border: 2px solid $primary-button-hover;
-
-			&:hover {
-				background-color: $primary-button-hover;
-			}
-		}
-
-		&.secondary {
-			color: $secondary-button-hover;
-			border: 2px solid $secondary-button-hover;
-
-			&:hover {
-				background-color: $secondary-button-hover;
-				color: $secondary-button;
-			}
-		}
-
-		&.tertiary {
-			background-color: $tertiary;
-			color: $tertiary-button;
-			border: 2px solid $tertiary-button-hover;
-
-			&:hover {
-				background-color: $tertiary-button-hover;
-				color: $primary;
-			}
-		}
-
-		&.accent {
-			color: $accent-button-hover;
-			border: 2px solid $accent-button;
-			background-color: $accent-button;
-
-			&:hover {
-				background-color: $accent-button-hover;
-				color: $accent-button;
-			}
-		}
-
-		&.black {
-			color: $black;
-			border: 2px solid $black;
-
-			&:hover {
-				background-color: $black;
-			}
-		}
+		font-weight: $font-bold;
+		border-radius: 20px;
+		background-size: 200%;
+		transition: background-position 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
+		background-image: linear-gradient(to right, #da22ff 0%, #9733ee 61%, #da22ff 100%);
+		border: none;
+		color: $white;
 
 		&:hover {
-			color: $white;
+			background-position: right;
 			cursor: pointer;
+			text-decoration: none;
 		}
+
+		// &.google-sign-in {
+		// 	background-color: #4285f4;
+		// 	border: 2px solid #4285f4;
+		// 	color: white;
+
+		// 	&:hover {
+		// 		background-color: #357ae8;
+		// 		border: 2px solid #357ae8;
+		// 	}
+		// }
+
+		// &.primary {
+		// 	color: $primary-button-hover;
+		// 	border: 2px solid $primary-button-hover;
+
+		// 	&:hover {
+		// 		background-color: $primary-button-hover;
+		// 	}
+		// }
+
+		// &.secondary {
+		// 	background-image: linear-gradient(to left #ffc312, #ee5a24, #ffc312);
+
+		// 	&:hover {
+		// 	}
+		// }
+
+		// &.tertiary {
+		// 	background-color: $tertiary;
+		// 	color: $tertiary-button;
+		// 	border: 2px solid $tertiary-button-hover;
+
+		// 	&:hover {
+		// 		background-color: $tertiary-button-hover;
+		// 		color: $primary;
+		// 	}
+		// }
+
+		// &.accent {
+		// 	color: $accent-button-hover;
+		// 	border: 2px solid $accent-button;
+		// 	background-color: $accent-button;
+
+		// 	&:hover {
+		// 		background-color: $accent-button-hover;
+		// 		color: $accent-button;
+		// 	}
+		// }
+
+		// &.black {
+		// 	color: $black;
+		// 	border: 2px solid $black;
+
+		// 	&:hover {
+		// 		background-color: $black;
+		// 	}
+		// }
+
+		// &:hover {
+		// 	color: $white;
+		// 	cursor: pointer;
+		// }
 	}
 </style>

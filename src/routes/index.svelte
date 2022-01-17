@@ -15,6 +15,8 @@
 	import { backgroundImages, images } from '../constants/images';
 </script>
 
+<ImageFader {backgroundImages} interval={4000} height="700px" blocker={0.5} />
+
 <Container fullWidth>
 	<HeroBanner
 		src="assets/default/person-one.png"
@@ -22,8 +24,8 @@
 		subtitle="Clever little subtitle."
 		buttonText="Get in touch"
 		href="/"
-		colour="tertiary"
-		buttonColour="primary"
+		colour="primary"
+		buttonColour="secondary"
 	/>
 </Container>
 

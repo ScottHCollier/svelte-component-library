@@ -33,12 +33,12 @@
 			height: 30px;
 			@include flex-box;
 			text-transform: uppercase;
-			background-color: $secondary;
+			background-color: $dark-grey;
 
 			.message {
 				text-align: center;
 				width: 100vw;
-				color: $secondary-text;
+				color: $primary-text;
 				font-size: $font-copy-medium;
 				font-weight: $font-semibold;
 
