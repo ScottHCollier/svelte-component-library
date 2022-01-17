@@ -22,7 +22,44 @@
 
 <nav class="nav {!fullWidth ? 'full-width' : null} {scrollTop > 80 ? 'scrolled' : ''}">
 	<div class="left-column">
-		<img src="/assets/logo.svg" alt="" />
+		<a class="logo" href="/">
+			<svg
+				version="1.1"
+				id="Layer_2_00000064343516668619463950000011249470571447987632_"
+				xmlns="http://www.w3.org/2000/svg"
+				xmlns:xlink="http://www.w3.org/1999/xlink"
+				x="0px"
+				y="0px"
+				viewBox="0 0 750 852.5"
+				style="enable-background:new 0 0 750 852.5;"
+				xml:space="preserve"
+			>
+				<path
+					class="st0"
+					d="M742.2,262.8v331.6c0,14.2-3.8,27.8-10.6,39.7c-6.9,11.9-16.8,22-29.1,29.1L415.3,829
+	c-12.3,7.1-26,10.6-39.7,10.6v-411h0v411c-13.7,0-27.4-3.5-39.7-10.6L48.7,663.2c-12.3-7.1-22.2-17.2-29.1-29.1
+	C12.8,622.2,9,608.6,9,594.4V262.8c0-14.2,3.8-27.8,10.6-39.7l0,0c6.9-11.9,16.8-22,29.1-29.1L335.9,28.2
+	c12.3-7.1,26-10.6,39.7-10.6c13.7,0,27.4,3.5,39.7,10.6L702.5,194c12.3,7.1,22.2,17.2,29.1,29.1l0,0
+	C738.4,234.9,742.2,248.6,742.2,262.8z"
+				/>
+				<path
+					class="st1"
+					d="M702.5,194L415.3,28.2c-12.3-7.1-26-10.6-39.7-10.6s-27.4,3.5-39.7,10.6L48.7,194
+	c-12.3,7.1-22.2,17.2-29.1,29.1l356,205.5l356-205.5C724.7,211.2,714.8,201.1,702.5,194z"
+				/>
+				<path
+					class="st0"
+					d="M731.6,223l-356,205.5v411c13.7,0,27.4-3.5,39.7-10.6l287.2-165.8c12.3-7.1,22.2-17.2,29.1-29.1
+	c6.9-11.9,10.6-25.5,10.6-39.7V262.8C742.2,248.6,738.4,234.9,731.6,223z"
+				/>
+				<path
+					class="st2"
+					d="M19.6,223C12.8,234.9,9,248.6,9,262.8v331.6c0,14.2,3.8,27.8,10.6,39.7c6.9,11.9,16.8,22,29.1,29.1L335.9,829
+	c12.3,7.1,26,10.6,39.7,10.6v-411L19.6,223z"
+				/>
+				<polygon class="st1" points="-524,309.5 -524,309.5 -524,309.5 " />
+			</svg>
+		</a>
 		<a class="title" href="/">tofu tech</a>
 	</div>
 	<div class="centre-column">
@@ -62,7 +99,7 @@
 		position: sticky;
 		top: 0px;
 		z-index: 1;
-		padding: 5px $full-width-padding;
+		padding: 0 $full-width-padding;
 		color: $primary-text;
 		height: 100px;
 
@@ -72,7 +109,7 @@
 		}
 
 		&.full-width {
-			padding: 5px $container-margin-width;
+			padding: 0 $container-margin-width;
 		}
 
 		.left-column,
@@ -85,15 +122,37 @@
 		.left-column {
 			justify-content: flex-start;
 
-			img {
-				width: 50px;
+			svg {
+				width: 30px;
 				height: auto;
-				margin-right: 20px;
+				margin-right: 10px;
+
+				.st0 {
+					fill: #f2f2f2;
+
+					&:hover {
+						fill: #da22ff5e;
+					}
+				}
+				.st1 {
+					fill: #ffffff;
+
+					&:hover {
+						fill: #da22ff5e;
+					}
+				}
+				.st2 {
+					fill: #e6e6e6;
+
+					&:hover {
+						fill: #da22ff5e;
+					}
+				}
 			}
 
 			.title {
 				font-weight: 900;
-				font-size: $h1;
+				font-size: $h3;
 				font-style: italic;
 			}
 		}
@@ -113,13 +172,33 @@
 			}
 		}
 
-		.nav-links {
-			@include flex-box;
+		.centre-column {
+			height: 100%;
 
-			.nav-link {
-				padding: 0 20px;
-				text-align: center;
-				font-size: $h4;
+			.nav-links {
+				@include flex-box;
+				height: 100%;
+
+				.nav-link {
+					@include flex-box;
+					padding: 0 20px;
+					text-align: center;
+					font-size: $h6;
+					height: 100%;
+					position: relative;
+
+					&:hover {
+						::after {
+							content: '';
+							position: absolute;
+							width: 100%;
+							height: 3px;
+							bottom: 0;
+							left: 0;
+							background-color: $accent;
+						}
+					}
+				}
 			}
 		}
 	}

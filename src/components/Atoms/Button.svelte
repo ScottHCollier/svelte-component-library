@@ -5,6 +5,7 @@
 	export let onClick = null;
 	export let href = null;
 	export let buttonColour = null;
+	export let width = null;
 </script>
 
 {#if onClick}
@@ -17,7 +18,7 @@
 	</button>
 {:else if href}
 	<a {href}>
-		<button class="button {buttonColour}">{text}</button>
+		<button class="button {buttonColour}" style={width ? 'width: 265px' : ''}>{text}</button>
 	</a>
 {:else}
 	<button {type} class="{isGoogleSignIn ? 'google-sign-in' : ''} button {buttonColour}">
@@ -27,9 +28,8 @@
 
 <style lang="scss">
 	.button {
-		padding: 10px;
+		padding: 5px 20px;
 		font-size: $font-button;
-		width: 245px;
 		margin: 20px 0;
 		font-weight: $font-bold;
 		border-radius: 20px;
@@ -39,10 +39,11 @@
 		border: none;
 		color: $white;
 
-		&:hover {
-			background-position: right;
+		&:hover,
+		&:focus,
+		&:active {
+			background-position: -50%;
 			cursor: pointer;
-			text-decoration: none;
 		}
 
 		// &.google-sign-in {

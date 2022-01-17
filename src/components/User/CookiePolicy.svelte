@@ -120,8 +120,8 @@
 </div>
 
 <style lang="scss">
-	$cookie-background: $secondary;
-	$cookie-foreground: $secondary-text;
+	$cookie-background: $primary;
+	$cookie-foreground: $primary-text;
 
 	.cookie-consent-popup {
 		height: 80px;
